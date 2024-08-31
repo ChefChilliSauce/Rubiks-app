@@ -2,18 +2,25 @@ public class CrossSolver {
     final private char[][][] cube;
     final private CubeMoves cubeMoves;
     int count;
+    // array to check the white edges on TOP layer
     char[] isVacant = new char[4];
+    // array helping in resolving the white bottom layer movement conflict
     char[] isWhiteConflict = new char[4];
 
-    public CrossSolver(RubiksCube rubiksCube) {
-        this.cube = rubiksCube.getCube(); // Directly assign the cube array to a member variable
-        this.cubeMoves = new CubeMoves(rubiksCube); // Initialize CubeMoves with the RubiksCube instance
+    public CrossSolver(RubiksCube rubiksCube) {             //getter method
+        // Directly assign the cube array to a member variable
+        this.cube = rubiksCube.getCube();
+        // Initialize CubeMoves with the RubiksCube instance
+        this.cubeMoves = new CubeMoves(rubiksCube);
     }
     public void solveWhiteCross(){
-                checkWhiteOnTop();
-                moveWhitesToTop();
+        //Method steps to solve white cube
+        //Step I: Check how many whites are on the top already
+        checkWhiteOnTop();
+        //Step II: Move the whites on Faces Front, Right, Back and Left to top
+        moveWhitesToTop();
     }
-    private boolean isWhiteOnBottomCritical() {
+    private boolean isWhiteOnBottomCritical() {      //Checking whites on bottom critical for moves
         for (int i = 0; i < 4; i++) {
             int x = (i == 0) ? 0 : (i == 1) ? 1 : (i == 2) ? 1 : 2;
             int y = (i == 0) ? 1 : (i == 1) ? 0 : (i == 2) ? 2 : 1;
@@ -35,6 +42,7 @@ public class CrossSolver {
         return false;
     }
     private void protectBottomWhiteEdges(int face, int i, int j, int vacantIndex, int bottomWhiteVacantIndex) {
+        //Method to protect the position of the whites on the bottom layer by using temporary moves
         switch (face) {
             case RubiksCube.FRONT:
                 if (i == 0) {
@@ -213,7 +221,7 @@ public class CrossSolver {
         }
     }
 
-    private void checkWhiteOnTop(){
+    private void checkWhiteOnTop(){ //Method to check and store the pos of the whites already on the top
         for (int i = 0; i < 4; i++) {
             int x = (i == 0) ? 0 : (i == 1) ? 1 : (i == 2) ? 1 : 2;
             int y = (i == 0) ? 1 : (i == 1) ? 0 : (i == 2) ? 2 : 1;
@@ -225,7 +233,7 @@ public class CrossSolver {
             }
         }
     }
-    private int getVacantIndex(int face, int i, int j) {
+    private int getVacantIndex(int face, int i, int j) {//Method to get the index of the vacant edge on top with no white
         for (int k = 0; k < 4; k++) {
             if (isVacant[k] == 'N') {
                 return k;
@@ -233,7 +241,7 @@ public class CrossSolver {
         }
         return -1;
     }
-    private int getBottomWhiteVacantIndex(int face, int i, int j) {
+    private int getBottomWhiteVacantIndex(int face, int i, int j) {//Method to check which edge don't have white in bottom to avoid conflict moves
         for (int k = 0; k < 4; k++) {
             if (isWhiteConflict[k] == 'N') {
                 return k;
@@ -241,9 +249,9 @@ public class CrossSolver {
         }
         return -1;
     }
-    private void bottomLayerWhiteConflict(int face, int i, int vacantIndex) {
-        switch (face) {
-            case RubiksCube.FRONT:
+    private void bottomLayerWhiteConflict(int face, int i, int vacantIndex) {// Method to handle the conflict moves of bottom layer of each face
+        switch (face) {                                                      // i.e. (Face)(2)(1) as it directly impacts the bottom layer
+            case RubiksCube.FRONT:                                           // Face: FRONT, RIGHT, BACK, LEFT/-
                 if (i == 0) {
                     switch (vacantIndex) {
                         case 0:
@@ -341,10 +349,11 @@ public class CrossSolver {
                 }
         }
     }
-    private void moveEdgeToTop(int face, int i, int j, int vacantIndex, int bottomWhiteVacantIndex) {
-        if (vacantIndex < 0 || vacantIndex > 3) return;
+    private void moveEdgeToTop(int face, int i, int j, int vacantIndex, int bottomWhiteVacantIndex) {//Method to move whites from edges
+                                                                                                     //Face(0)(1)&&(1)(0)&&(1)(2) to top
+        if (vacantIndex < 0 || vacantIndex > 3) return;        //To check is it is a valid vacant index
 
-        if (isWhiteOnBottomCritical()) {
+        if (isWhiteOnBottomCritical()) {//Method call to handle the bottom white edges to avoid conflict
             protectBottomWhiteEdges(face,i, j, vacantIndex, bottomWhiteVacantIndex);
         }
         switch (face) {
@@ -782,7 +791,7 @@ public class CrossSolver {
                 }
         }
     }
-    private void performMoves(String[] moves) {
+    private void performMoves(String[] moves) {//Method for all moves to improve readability of code converted to a method
         for (String move : moves) {
             switch (move) {
                 case "rotateTopClockwise":
@@ -824,7 +833,7 @@ public class CrossSolver {
             }
         }
     }
-    private void moveWhitesToTop() {
+    private void moveWhitesToTop() {//Method to move white to top
         for (int face = 1; face < 5; face++) {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
