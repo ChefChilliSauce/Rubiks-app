@@ -45,7 +45,7 @@ public class CrossSolver {
         //Method to protect the position of the whites on the bottom layer by using temporary moves
         switch (face) {
             case RubiksCube.FRONT:
-                if (i == 0) {
+                if (i == 0 && j == 1) {
                     switch (vacantIndex) {
                         case 0:
                             switch (bottomWhiteVacantIndex){
@@ -218,6 +218,250 @@ public class CrossSolver {
                             break;
                     }
                 }
+            case RubiksCube.RIGHT:
+                if (i == 0 && j == 1) {
+                    switch (vacantIndex) {
+                        case 0, 1, 2, 3:
+                            switch (bottomWhiteVacantIndex) {
+                                case 0:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise",
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 1:
+                                    performMoves(new String[]{
+                                            "rotateBottomCounterClockwise"
+                                    });
+                                    break;
+                                case 2:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 3:
+                                    performMoves(new String[]{
+                                    });
+                                    break;
+                            }
+                            break;
+                    }
+                }
+                else if (i == 1 && j == 0){
+                    switch (vacantIndex) {
+                        case 0, 1, 2, 3:
+                            switch (bottomWhiteVacantIndex) {
+                                case 0:
+                                    performMoves(new String[]{});
+                                    break;
+                                case 1:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 2:
+                                    performMoves(new String[]{
+                                            "rotateBottomCounterClockwise"
+                                    });
+                                    break;
+                                case 3:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise",
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                            }
+                            break;
+                    }
+                }
+                else if (i == 1 && j == 2){
+                    switch (vacantIndex) {
+                        case 0, 1, 2, 3:
+                            switch (bottomWhiteVacantIndex) {
+                                case 0:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise",
+                                            "rotateBottomClockwise"});
+                                    break;
+                                case 1:
+                                    performMoves(new String[]{
+                                            "rotateBottomCounterClockwise"
+                                    });
+                                    break;
+                                case 2:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 3:
+                                    performMoves(new String[]{});
+                                    break;
+                            }
+                            break;
+                    }
+                }
+            case RubiksCube.BACK:
+                if (i == 0 && j == 1) {
+                    switch (vacantIndex) {
+                        case 0, 1, 2, 3:
+                            switch (bottomWhiteVacantIndex) {
+                                case 0:
+                                    performMoves(new String[]{
+                                            "rotateBottomCounterClockwise"
+                                    });
+                                    break;
+                                case 1:
+                                    performMoves(new String[]{});
+                                    break;
+                                case 2:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise",
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 3:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                            }
+                            break;
+                    }
+                }
+                else if (i == 1 && j == 0){
+                    switch (vacantIndex) {
+                        case 0, 1, 2, 3:
+                            switch (bottomWhiteVacantIndex) {
+                                case 0:
+                                    performMoves(new String[]{ "rotateBottomClockwise"});
+                                    break;
+                                case 1:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise",
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 2:
+                                    performMoves(new String[]{});
+                                    break;
+                                case 3:
+                                    performMoves(new String[]{
+                                            "rotateBottomCounterClockwise"
+                                    });
+                                    break;
+                            }
+                            break;
+                    }
+                }
+                else if (i == 1 && j == 2){
+                    switch (vacantIndex) {
+                        case 0, 1, 2, 3:
+                            switch (bottomWhiteVacantIndex) {
+                                case 0:
+                                    performMoves(new String[]{
+                                            "rotateBottomCounterClockwise"
+                                    });
+                                    break;
+                                case 1:
+                                    performMoves(new String[]{});
+                                    break;
+                                case 2:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise",
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 3:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                            }
+                            break;
+                    }
+                }
+            case RubiksCube.LEFT:
+                if (i == 0 && j == 1) {
+                    switch (vacantIndex) {
+                        case 0, 1, 2, 3:
+                            switch (bottomWhiteVacantIndex) {
+                                case 0:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise",
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 1:
+                                    performMoves(new String[]{
+                                            "rotateBottomCounterClockwise"
+                                    });
+                                    break;
+                                case 2:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 3:
+                                    performMoves(new String[]{});
+                                    break;
+                            }
+                            break;
+                    }
+                }
+                else if (i == 1 && j == 0){
+                    switch (vacantIndex) {
+                        case 0, 1, 2, 3:
+                            switch (bottomWhiteVacantIndex) {
+                                case 0:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise",
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 1:
+                                    performMoves(new String[]{
+                                            "rotateBottomCounterClockwise"
+                                    });
+                                    break;
+                                case 2:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 3:
+                                    performMoves(new String[]{});
+                                    break;
+                            }
+                            break;
+                    }
+                }
+                else if (i == 1 && j == 2){
+                    switch (vacantIndex) {
+                        case 0, 1, 2, 3:
+                            switch (bottomWhiteVacantIndex) {
+                                case 0:
+                                    performMoves(new String[]{});
+                                    break;
+                                case 1:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                                case 2:
+                                    performMoves(new String[]{
+                                            "rotateBottomCounterClockwise"
+                                    });
+                                    break;
+                                case 3:
+                                    performMoves(new String[]{
+                                            "rotateBottomClockwise",
+                                            "rotateBottomClockwise"
+                                    });
+                                    break;
+                            }
+                            break;
+                    }
+                }
         }
     }
 
@@ -249,10 +493,9 @@ public class CrossSolver {
         }
         return -1;
     }
-    private void bottomLayerWhiteConflict(int face, int i, int vacantIndex) {// Method to handle the conflict moves of bottom layer of each face
+    private void bottomLayerWhiteConflict(int face, int vacantIndex) {// Method to handle the conflict moves of bottom layer of each face
         switch (face) {                                                      // i.e. (Face)(2)(1) as it directly impacts the bottom layer
             case RubiksCube.FRONT:                                           // Face: FRONT, RIGHT, BACK, LEFT/-
-                if (i == 0) {
                     switch (vacantIndex) {
                         case 0:
                             if (cube[RubiksCube.BOTTOM][1][0] == 'W' && cube[RubiksCube.BOTTOM][1][2] == 'W' && cube[RubiksCube.BOTTOM][2][1] == 'W'){
@@ -345,8 +588,99 @@ public class CrossSolver {
                                     "rotateRightClockwise",
                                     "rotateTopClockwise",
                             });
+                            break;
                     }
+                    break;
+            case RubiksCube.RIGHT:
+                switch (vacantIndex) {
+                    case 0:
+                        if (cube[RubiksCube.BOTTOM][0][1] == 'W' && cube[RubiksCube.BOTTOM][1][0] == 'W' && cube[RubiksCube.BOTTOM][2][1] == 'W'){
+                            performMoves(new String[]{
+                                    "rotateRightCounterClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBackClockwise"
+                            });
+                        }
+                        else if (cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateRightCounterClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBackClockwise"
+                            });
+                        }
+                        else if (cube[RubiksCube.BOTTOM][2][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateRightCounterClockwise",
+                                    "rotateBackClockwise"
+                            });
+                        }
+                        else {
+                            performMoves(new String[]{
+                                    "rotateFrontClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "rotateLeftCounterClockwise",
+                                    "rotateTopClockwise"
+                            });
+                        }
+                        break;
+                    case 1:
+                        if(cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateFrontClockwise",
+                                    "rotateLeftCounterClockwise",
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][1][2] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateFrontClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateLeftCounterClockwise",
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][2][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateFrontClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateLeftCounterClockwise",
+                            });
+                        }
+                        break;
+                    case 2:
+                        if(cube[RubiksCube.BOTTOM][1][2] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateFrontCounterClockwise",
+                                    "rotateRightClockwise",
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateFrontCounterClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateRightClockwise",
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][2][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateFrontCounterClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateRightClockwise",
+                            });
+                        }
+                        break;
+                    case 3:
+                        performMoves(new String[]{
+                                "rotateFrontCounterClockwise",
+                                "rotateTopCounterClockwise",
+                                "rotateRightClockwise",
+                                "rotateTopClockwise",
+                        });
+                        break;
                 }
+                break;
         }
     }
     private void moveEdgeToTop(int face, int i, int j, int vacantIndex, int bottomWhiteVacantIndex) {//Method to move whites from edges
@@ -460,7 +794,7 @@ public class CrossSolver {
                 else if(i == 2 && j == 1){
                     switch (vacantIndex) {
                         case 0, 3, 2, 1:
-                            bottomLayerWhiteConflict(face,i, vacantIndex);
+                            bottomLayerWhiteConflict(face, vacantIndex);
                             break;
                     }
                 }
@@ -470,7 +804,8 @@ public class CrossSolver {
                         case 0:
                             performMoves(new String[]{
                                     "rotateRightClockwise",
-                                    "rotateBackClockwise"
+                                    "rotateBackClockwise",
+                                    "rotateRightCounterClockwise"
                             });
                             break;
                         case 1:
@@ -478,7 +813,8 @@ public class CrossSolver {
                                     "rotateRightClockwise",
                                     "rotateTopClockwise",
                                     "rotateBackClockwise",
-                                    "rotateTopCounterClockwise"
+                                    "rotateTopCounterClockwise",
+                                    "rotateRightCounterClockwise"
                             });
                             break;
                         case 2:
@@ -486,7 +822,8 @@ public class CrossSolver {
                                     "rotateRightClockwise",
                                     "rotateTopCounterClockwise",
                                     "rotateBackClockwise",
-                                    "rotateTopClockwise"
+                                    "rotateTopClockwise",
+                                    "rotateRightCounterClockwise"
                             });
                             break;
                         case 3:
@@ -496,7 +833,8 @@ public class CrossSolver {
                                     "rotateTopClockwise",
                                     "rotateBackClockwise",
                                     "rotateTopClockwise",
-                                    "rotateTopClockwise"
+                                    "rotateTopClockwise",
+                                    "rotateRightCounterClockwise"
                             });
                             break;
                     }
@@ -569,7 +907,7 @@ public class CrossSolver {
                 else if(i == 2 && j == 1){
                     switch (vacantIndex) {
                         case 0, 3, 2, 1:
-                            bottomLayerWhiteConflict(face,i, vacantIndex);
+                            bottomLayerWhiteConflict(face, vacantIndex);
                             break;
                     }
                 }
@@ -581,6 +919,7 @@ public class CrossSolver {
                                     "rotateBackClockwise",
                                     "rotateTopCounterClockwise",
                                     "rotateLeftClockwise",
+                                    "rotateBackCounterClockwise",
                                     "rotateTopClockwise"
                             });
                             break;
@@ -597,7 +936,8 @@ public class CrossSolver {
                                     "rotateTopClockwise",
                                     "rotateLeftClockwise",
                                     "rotateTopClockwise",
-                                    "rotateTopClockwise"
+                                    "rotateTopClockwise",
+                                    "rotateBackCounterClockwise"
                             });
                             break;
                         case 3:
@@ -677,7 +1017,7 @@ public class CrossSolver {
                 else if(i == 2 && j == 1){
                     switch (vacantIndex) {
                         case 0, 3, 2, 1:
-                            bottomLayerWhiteConflict(face,i, vacantIndex);
+                            bottomLayerWhiteConflict(face, vacantIndex);
                             break;
                     }
                 }
@@ -687,7 +1027,8 @@ public class CrossSolver {
                         case 0:
                             performMoves(new String[]{
                                     "rotateLeftCounterClockwise",
-                                    "rotateBackCounterClockwise"
+                                    "rotateBackCounterClockwise",
+                                    "rotateLeftClockwise"
                             });
                             break;
                         case 1:
@@ -695,7 +1036,8 @@ public class CrossSolver {
                                     "rotateLeftCounterClockwise",
                                     "rotateTopClockwise",
                                     "rotateBackCounterClockwise",
-                                    "rotateTopCounterClockwise"
+                                    "rotateTopCounterClockwise",
+                                    "rotateLeftClockwise"
                             });
                             break;
                         case 2:
@@ -705,7 +1047,8 @@ public class CrossSolver {
                                     "rotateTopClockwise",
                                     "rotateBackCounterClockwise",
                                     "rotateTopClockwise",
-                                    "rotateTopClockwise"
+                                    "rotateTopClockwise",
+                                    "rotateLeftClockwise"
                             });
                             break;
                         case 3:
@@ -785,7 +1128,7 @@ public class CrossSolver {
                 else if(i == 2 && j == 1){
                     switch (vacantIndex) {
                         case 0, 3, 2, 1:
-                            bottomLayerWhiteConflict(face,i, vacantIndex);
+                            bottomLayerWhiteConflict(face, vacantIndex);
                             break;
                     }
                 }
