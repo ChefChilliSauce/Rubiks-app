@@ -601,7 +601,14 @@ public class CrossSolver {
                                     "rotateBackClockwise"
                             });
                         }
-                        else if (cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                        else if (cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateRightCounterClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBackClockwise"
+                            });
+                        }
+                        else if (cube[RubiksCube.BOTTOM][1][2] != 'W'){
                             performMoves(new String[]{
                                     "rotateRightCounterClockwise",
                                     "rotateBottomClockwise",
@@ -614,69 +621,286 @@ public class CrossSolver {
                                     "rotateBackClockwise"
                             });
                         }
-                        else {
-                            performMoves(new String[]{
-                                    "rotateFrontClockwise",
-                                    "rotateBottomClockwise",
-                                    "rotateBottomClockwise",
-                                    "rotateTopCounterClockwise",
-                                    "rotateLeftCounterClockwise",
-                                    "rotateTopClockwise"
-                            });
-                        }
                         break;
                     case 1:
-                        if(cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                        if(cube[RubiksCube.BOTTOM][0][1] != 'W'){
                             performMoves(new String[]{
-                                    "rotateFrontClockwise",
-                                    "rotateLeftCounterClockwise",
-                            });
-                        }
-                        else if(cube[RubiksCube.BOTTOM][1][2] != 'W'){
-                            performMoves(new String[]{
-                                    "rotateFrontClockwise",
-                                    "rotateBottomClockwise",
-                                    "rotateBottomClockwise",
-                                    "rotateLeftCounterClockwise",
+                                    "rotateRightClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "RotateFrontCounterClockwise",
+                                    "rotateTopClockwise",
+                                    "RotateFrontClockwise",
+                                    "rotateRightCounterClockwise"
                             });
                         }
                         else if(cube[RubiksCube.BOTTOM][2][1] != 'W'){
                             performMoves(new String[]{
-                                    "rotateFrontClockwise",
-                                    "rotateBottomClockwise",
-                                    "rotateLeftCounterClockwise",
-                            });
-                        }
-                        break;
-                    case 2:
-                        if(cube[RubiksCube.BOTTOM][1][2] != 'W'){
-                            performMoves(new String[]{
-                                    "rotateFrontCounterClockwise",
-                                    "rotateRightClockwise",
+                                    "rotateRightCounterClockwise",
+                                    "rotateTopClockwise",
+                                    "rotateBackClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "rotateRightClockwise"
                             });
                         }
                         else if(cube[RubiksCube.BOTTOM][1][0] != 'W'){
                             performMoves(new String[]{
-                                    "rotateFrontCounterClockwise",
-                                    "rotateBottomClockwise",
-                                    "rotateBottomClockwise",
                                     "rotateRightClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateFrontCounterClockwise",
+                                    "rotateTopClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateRightCounterClockwise"
+                            });
+                        }
+                        break;
+                    case 2:
+                        if(cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateRightCounterClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBackClockwise",
+                                    "rotateTopClockwise"
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateRightCounterClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateBackClockwise",
+                                    "rotateTopClockwise"
                             });
                         }
                         else if(cube[RubiksCube.BOTTOM][2][1] != 'W'){
                             performMoves(new String[]{
-                                    "rotateFrontCounterClockwise",
-                                    "rotateBottomCounterClockwise",
-                                    "rotateRightClockwise",
+                                    "rotateRightCounterClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "rotateBackClockwise",
+                                    "rotateTopClockwise"
                             });
                         }
                         break;
                     case 3:
                         performMoves(new String[]{
-                                "rotateFrontCounterClockwise",
-                                "rotateTopCounterClockwise",
                                 "rotateRightClockwise",
+                                "rotateFrontCounterClockwise",
+                                "rotateRightCounterClockwise"
+                        });
+                        break;
+                }
+                break;
+            case RubiksCube.BACK:
+                switch (vacantIndex) {
+                    case 0:
+                        if (cube[RubiksCube.BOTTOM][0][1] == 'W' && cube[RubiksCube.BOTTOM][1][0] == 'W' && cube[RubiksCube.BOTTOM][1][2] == 'W'){
+                            performMoves(new String[]{
+                                    "rotateBackClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateTopClockwise",
+                                    "rotateRightCounterClockwise",
+                                    "rotateTopCounterClockwise"
+                            });
+                        }
+                        else if (cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateBackClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateTopClockwise",
+                                    "rotateRightCounterClockwise",
+                                    "rotateTopCounterClockwise"
+                            });
+                        }
+                        else if (cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateBackClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateTopClockwise",
+                                    "rotateRightCounterClockwise",
+                                    "rotateTopCounterClockwise"
+                            });
+                        }
+                        else {
+                            performMoves(new String[]{
+                                    "rotateBackClockwise",
+                                    "rotateTopClockwise",
+                                    "rotateRightCounterClockwise",
+                                    "rotateTopCounterClockwise"
+                            });
+                        }
+                        break;
+                    case 1:
+                        if(cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateBackCounterClockwise",
+                                    "RotateBottomCounterClockwise",
+                                    "rotateLeftClockwise",
+                                    "rotateBottomClockwise",
+                                    "RotateBackClockwise"
+
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateBackCounterClockwise",
+                                    "rotateLeftClockwise",
+                                    "RotateBackClockwise"
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][1][2] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateBackCounterClockwise",
+                                    "RotateBottomCounterClockwise",
+                                    "rotateLeftClockwise",
+                                    "rotateBottomClockwise",
+                                    "RotateBackClockwise"
+                            });
+                        }
+                        break;
+                    case 2:
+                        if(cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateBackClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateRightCounterClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateBackCounterClockwise"
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateBackClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateRightCounterClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateBackCounterClockwise"
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][1][2] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateBackClockwise",
+                                    "rotateRightCounterClockwise",
+                                    "rotateBackCounterClockwise"
+                            });
+                        }
+                        break;
+                    case 3:
+                        performMoves(new String[]{
                                 "rotateTopClockwise",
+                                "rotateBackCounterClockwise",
+                                "rotateLeftClockwise",
+                                "rotateBackClockwise"
+                        });
+                        break;
+                }
+                break;
+            case RubiksCube.LEFT:
+                switch (vacantIndex) {
+                    case 0:
+                        if (cube[RubiksCube.BOTTOM][0][1] == 'W' && cube[RubiksCube.BOTTOM][1][2] == 'W' && cube[RubiksCube.BOTTOM][2][1] == 'W'){
+                            performMoves(new String[]{
+                                    "rotateLeftClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateBackCounterClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateLeftCounterClockwise"
+                            });
+                        }
+                        else if (cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateLeftClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateBackCounterClockwise"
+                            });
+                        }
+                        else if (cube[RubiksCube.BOTTOM][1][2] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateLeftClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateBackCounterClockwise"
+                            });
+                        }
+                        else {
+                            performMoves(new String[]{
+                                    "rotateLeftClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateBackCounterClockwise"
+                            });
+                        }
+                        break;
+                    case 1:
+                        if(cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateLeftCounterClockwise",
+                                    "RotateTopCounterClockwise",
+                                    "rotateFrontClockwise",
+                                    "rotateTopClockwise"
+
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][1][2] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateLeftCounterClockwise",
+                                    "RotateTopCounterClockwise",
+                                    "RotateBottomClockwise",
+                                    "rotateFrontClockwise",
+                                    "rotateTopClockwise"
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][2][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateLeftCounterClockwise",
+                                    "RotateTopCounterClockwise",
+                                    "RotateBottomClockwise",
+                                    "rotateFrontClockwise",
+                                    "rotateTopClockwise"
+                            });
+                        }
+                        break;
+                    case 2:
+                        if(cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateLeftCounterClockwise",
+                                    "rotateTopClockwise",
+                                    "rotateFrontClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "rotateLeftClockwise"
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][1][2] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateLeftCounterClockwise",
+                                    "rotateTopClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateFrontClockwise",
+                                    "rotateBottomClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "rotateLeftClockwise"
+                            });
+                        }
+                        else if(cube[RubiksCube.BOTTOM][2][1] != 'W'){
+                            performMoves(new String[]{
+                                    "rotateLeftCounterClockwise",
+                                    "rotateTopClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateFrontClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateBottomCounterClockwise",
+                                    "rotateTopCounterClockwise",
+                                    "rotateLeftClockwise"
+                            });
+                        }
+                        break;
+                    case 3:
+                        performMoves(new String[]{
+                                "rotateLeftCounterClockwise",
+                                "rotateFrontClockwise",
+                                "rotateLeftClockwise"
                         });
                         break;
                 }
@@ -1186,7 +1410,7 @@ public class CrossSolver {
                     if (cube[face][i][j] == 'W') {
                         int vacantIndex = getVacantIndex(face, i, j);
                         int bottomWhiteVacantIndex = getBottomWhiteVacantIndex(face, i, j);
-                        if (vacantIndex >= 0) {
+                        if (vacantIndex > 0) {
                             moveEdgeToTop(face, i, j, vacantIndex, bottomWhiteVacantIndex);
                         }
                     }
@@ -1195,4 +1419,3 @@ public class CrossSolver {
         }
     }
 }
-
