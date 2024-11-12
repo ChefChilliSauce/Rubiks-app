@@ -1349,7 +1349,7 @@ public class CrossSolver {
                             break;
                     }
                 }
-                else if(i == 2 && j == 1){
+                else if(i == 2 && j == 1) {
                     switch (vacantIndex) {
                         case 0, 3, 2, 1:
                             bottomLayerWhiteConflict(face, vacantIndex);
@@ -1358,7 +1358,7 @@ public class CrossSolver {
                 }
         }
     }
-    private void performMoves(String[] moves) {//Method for all moves to improve readability of code converted to a method
+    private void    performMoves(String[] moves) {//Method for all moves to improve readability of code converted to a method
         for (String move : moves) {
             switch (move) {
                 case "rotateTopClockwise":
