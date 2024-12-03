@@ -376,6 +376,7 @@ public class F2L {
                     cubeMoves.rotateLeftCounterClockwise();
                     cubeMoves.rotateTopCounterClockwise();
                     cubeMoves.rotateLeftClockwise();
+                    break;
                 case "GOAlgo":
                     cubeMoves.rotateRightClockwise();
                     cubeMoves.rotateTopClockwise();
@@ -410,6 +411,7 @@ public class F2L {
                     cubeMoves.rotateRightCounterClockwise();;
                     cubeMoves.rotateTopCounterClockwise();
                     cubeMoves.rotateRightClockwise();
+                    break;
                 case "BRAlgo":
                     cubeMoves.rotateLeftClockwise();
                     cubeMoves.rotateTopCounterClockwise();
@@ -427,6 +429,7 @@ public class F2L {
                     cubeMoves.rotateLeftClockwise();;
                     cubeMoves.rotateTopClockwise();
                     cubeMoves.rotateLeftCounterClockwise();
+                    break;
                 case"E1Algo":
                     cubeMoves.rotateTopCounterClockwise();
                     cubeMoves.rotateLeftCounterClockwise();
@@ -436,6 +439,7 @@ public class F2L {
                     cubeMoves.rotateFrontClockwise();
                     cubeMoves.rotateTopCounterClockwise();
                     cubeMoves.rotateFrontCounterClockwise();
+                    break;
                 case"E2Algo":
                     cubeMoves.rotateTopClockwise();
                     cubeMoves.rotateRightClockwise();
@@ -445,6 +449,7 @@ public class F2L {
                     cubeMoves.rotateFrontCounterClockwise();
                     cubeMoves.rotateTopClockwise();
                     cubeMoves.rotateFrontClockwise();
+                    break;
                 case"E3Algo":
                     cubeMoves.rotateTopCounterClockwise();
                     cubeMoves.rotateRightCounterClockwise();
@@ -454,6 +459,7 @@ public class F2L {
                     cubeMoves.rotateBackClockwise();
                     cubeMoves.rotateTopCounterClockwise();
                     cubeMoves.rotateBackCounterClockwise();
+                    break;
                 case"E4Algo":
                     cubeMoves.rotateTopClockwise();
                     cubeMoves.rotateLeftClockwise();
@@ -463,6 +469,7 @@ public class F2L {
                     cubeMoves.rotateBackCounterClockwise();
                     cubeMoves.rotateTopClockwise();
                     cubeMoves.rotateBackClockwise();
+                    break;
             }
         }
     }
