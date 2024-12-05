@@ -294,4 +294,46 @@ public class CubeMoves {
     public void rotateMiddleBackFrontCounterClockwise(){
         rotateMiddleFrontBackClockwise();
     }
+    public void rotateMiddleRightLeftClockwise() {
+        char[] temp = new char[3];
+        for (int i = 0 ; i < 3 ; i++){
+            temp[i] = cube[RubiksCube.TOP][i][1];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.TOP][i][1] = cube[RubiksCube.FRONT][i][1];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.FRONT][i][1] = cube[RubiksCube.BOTTOM][i][1];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.BOTTOM][i][1] = cube[RubiksCube.BACK][2-i][1];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.BACK][i][1] = temp[2-i];
+        }
+    }
+    public void rotateMiddleRightLeftCounterClockwise() {
+        char[] temp = new char[3];
+        for (int i = 0 ; i < 3 ; i++){
+            temp[i] = cube[RubiksCube.TOP][i][1];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.TOP][i][1] = cube[RubiksCube.BACK][2-i][1];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.BACK][i][1] = cube[RubiksCube.BOTTOM][2-i][1];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.BOTTOM][i][1] = cube[RubiksCube.FRONT][i][1];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.FRONT][i][1] = temp[i];
+        }
+    }
+    public void rotateMiddleLeftRightClockwise(){
+        rotateMiddleRightLeftCounterClockwise();
+    }
+    public void rotateMiddleLeftRightCounterClockwise(){
+        rotateMiddleRightLeftClockwise();
+    }
 }
