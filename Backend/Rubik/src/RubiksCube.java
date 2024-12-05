@@ -16,14 +16,10 @@ public class RubiksCube {
     public char[][][] getCube() {//getter method
         return cube;
     }
-
-
     public RubiksCube (){
         //method call to initiate the cube
         initiateCube();
     }
-
-
     private void initiateCube(){
         //cube initiation eg:cube[0][0][0] = 'Y'
         for(int face = 0; face < 6; face++){
@@ -34,10 +30,7 @@ public class RubiksCube {
             }
         }
     }
-
-
     public void DisplayCube(){
-        //print statement for cube
         for(int face = 0; face < 6; face++){
             System.out.println("Face: " + faceNames[face]);
             for(int i = 0; i < 3; i++){
