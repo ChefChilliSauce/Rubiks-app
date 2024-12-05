@@ -336,4 +336,36 @@ public class CubeMoves {
     public void rotateMiddleLeftRightCounterClockwise(){
         rotateMiddleRightLeftClockwise();
     }
+    public void rotateDoubleFrontClockwise(){
+        rotateFrontClockwise();
+        rotateMiddleFrontBackClockwise();
+    }
+    public void rotateDoubleFrontCounterClockwise(){
+        rotateFrontCounterClockwise();
+        rotateMiddleFrontBackCounterClockwise();
+    }
+    public void rotateDoubleBackClockwise(){
+        rotateBackClockwise();
+        rotateMiddleBackFrontClockwise();
+    }
+    public void rotateDoubleBackCounterClockwise(){
+        rotateBackCounterClockwise();
+        rotateMiddleBackFrontCounterClockwise();
+    }
+    public void rotateDoubleRightClockwise(){
+        rotateRightClockwise();
+        rotateMiddleRightLeftClockwise();
+    }
+    public void rotateDoubleRightCounterClockwise(){
+        rotateRightCounterClockwise();
+        rotateMiddleRightLeftCounterClockwise();
+    }
+    public void rotateDoubleLeftClockwise(){
+        rotateLeftClockwise();
+        rotateMiddleLeftRightClockwise();
+    }
+    public void rotateDoubleLeftCounterClockwise(){
+        rotateLeftCounterClockwise();
+        rotateMiddleLeftRightCounterClockwise();
+    }
 }
