@@ -118,118 +118,118 @@ final private CubeMoves cubeMoves;
         return cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y';
     }
     private boolean isAntiSune(){
-        if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][0] == 'Y'){
+        if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][0] == 'Y'){
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[3][0][0] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][0] == 'Y'){
+        else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[3][0][0] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][0] == 'Y'){
             performMoves(new String[]{"T`"});
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[4][0][0] == 'Y' && cube[3][0][0] == 'Y' && cube[2][0][0] == 'Y'){
+        else if(cube[0][0][1] == 'Y' &&  cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[4][0][0] == 'Y' && cube[3][0][0] == 'Y' && cube[2][0][0] == 'Y'){
             performMoves(new String[]{"T" , "T"});
             return true;
         }
-        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][0] == 'Y' && cube[3][0][0] == 'Y'){
+        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][0] == 'Y' && cube[3][0][0] == 'Y'){
             performMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
     private boolean isH(){
-        if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y'){
+        if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y'){
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y'){
+        else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y'){
             performMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
     private boolean isL(){
-        if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][2] == 'Y'){
+        if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][2] == 'Y'){
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][2] == 'Y'){
+        else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][2] == 'Y'){
             performMoves(new String[]{"T`"});
             return true;
         }
-        else if((cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' &&cube[3][0][0] == 'Y' && cube[2][0][2] == 'Y')){
+        else if((cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' &&cube[3][0][0] == 'Y' && cube[2][0][2] == 'Y')){
             performMoves(new String[]{"T" , "T"});
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' &&  cube[4][0][0] == 'Y' && cube[3][0][2] == 'Y'){
+        else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' &&  cube[4][0][0] == 'Y' && cube[3][0][2] == 'Y'){
             performMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
     private boolean isPi(){
-        if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y' && cube[3][0][0] == 'Y'){
+        if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y' && cube[3][0][0] == 'Y'){
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y' && cube[4][0][0] == 'Y'){
+        else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y' && cube[4][0][0] == 'Y'){
             performMoves(new String[]{"T`"});
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[3][0][2] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y'){
+        else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[3][0][2] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y'){
             performMoves(new String[]{"T" , "T"});
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y' && cube[2][0][0] == 'Y' && cube[4][0][2] == 'Y'){
+        else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y' && cube[2][0][0] == 'Y' && cube[4][0][2] == 'Y'){
             performMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
     private  boolean isSune(){
-        if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[4][0][2] == 'Y' && cube[3][0][2] == 'Y') {
+        if(cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[4][0][2] == 'Y' && cube[3][0][2] == 'Y') {
             return true;
         }
-        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[1][0][2] == 'Y' && cube[4][0][2] == 'Y') {
+        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[1][0][2] == 'Y' && cube[4][0][2] == 'Y') {
             performMoves(new String[]{"T`"});
             return true;
         }
-       else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[3][0][2] == 'Y' && cube[2][0][2] == 'Y' && cube[1][0][2] == 'Y') {
+       else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[3][0][2] == 'Y' && cube[2][0][2] == 'Y' && cube[1][0][2] == 'Y') {
             performMoves(new String[]{"T", "T"});
             return true;
         }
-      else  if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[4][0][2] == 'Y' && cube[3][0][2] == 'Y' && cube[2][0][2] == 'Y') {
+      else  if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[4][0][2] == 'Y' && cube[3][0][2] == 'Y' && cube[2][0][2] == 'Y') {
             performMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
     private  boolean isT(){
-        if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[1][0][0] == 'Y' && cube[3][0][2] == 'Y') {
+        if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[1][0][0] == 'Y' && cube[3][0][2] == 'Y') {
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[2][0][0] == 'Y' && cube[4][0][2] == 'Y') {
+        else if(cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[2][0][0] == 'Y' && cube[4][0][2] == 'Y') {
             performMoves(new String[]{"T`"});
             return true;
         }
-        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[3][0][0] == 'Y') {
+        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[3][0][0] == 'Y') {
             performMoves(new String[]{"T", "T"});
             return true;
         }
-       else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[4][0][0] == 'Y') {
+       else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[4][0][0] == 'Y') {
             performMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
     private  boolean isU(){
-        if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y') {
+        if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y') {
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y') {
+        else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y') {
             performMoves(new String[]{"T`"});
             return true;
         }
-        else if(cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y') {
+        else if(cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y') {
             performMoves(new String[]{"T" , "T"});
             return true;
         }
-        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y') {
+        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y') {
             performMoves(new String[]{"T"});
             return true;
         }
