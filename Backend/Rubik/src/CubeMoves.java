@@ -6,7 +6,7 @@ public class CubeMoves {
         this.cube = rubiksCube.getCube();
     }
 
-    public void rotateFaceClockwise(int face){
+    private void rotateFaceClockwise(int face){
         //Method to rotate face moving clockwise
         /*
          * [00 01 02]-------------[20 10 00]
@@ -27,7 +27,7 @@ public class CubeMoves {
         cube[face][1][2] = temp;
     }
 
-    public void rotateFaceCounterClockwise(int face){
+    private void rotateFaceCounterClockwise(int face){
         //Method to rotate face moving Counter-clockwise
         /*
          * [00 01 02]-------------[02 12 22]
@@ -133,16 +133,16 @@ public class CubeMoves {
         char[] tempRow = new char[3];
         System.arraycopy(cube[RubiksCube.TOP][0], 0, tempRow, 0, 3);
         for(int i = 0; i < 3; i++) {
-            cube[RubiksCube.TOP][0][i] = cube[RubiksCube.RIGHT][2-i][2];
+            cube[RubiksCube.TOP][0][i] = cube[RubiksCube.RIGHT][i][2];
         }
         for(int i = 0; i < 3; i++) {
-            cube[RubiksCube.RIGHT][i][2] = cube[RubiksCube.BOTTOM][2][i];
+            cube[RubiksCube.RIGHT][i][2] = cube[RubiksCube.BOTTOM][2][2-i];
         }
         for(int i = 0; i < 3; i++) {
-            cube[RubiksCube.BOTTOM][2][i] = cube[RubiksCube.LEFT][2-i][0];
+            cube[RubiksCube.BOTTOM][2][i] = cube[RubiksCube.LEFT][i][0];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.LEFT][i][0] = tempRow[i];
+            cube[RubiksCube.LEFT][2-i][0] = tempRow[i];
         }
     }
     public void rotateBackCounterClockwise(){
@@ -150,16 +150,16 @@ public class CubeMoves {
         char[] tempRow = new char[3];
         System.arraycopy(cube[RubiksCube.TOP][0], 0, tempRow, 0, 3);
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.TOP][0][i] = cube[RubiksCube.LEFT][i][0];
+            cube[RubiksCube.TOP][0][i] = cube[RubiksCube.LEFT][2-i][0];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.LEFT][i][0] = cube[RubiksCube.BOTTOM][2][2-i];
+            cube[RubiksCube.LEFT][i][0] = cube[RubiksCube.BOTTOM][2][i];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.BOTTOM][2][i] = cube[RubiksCube.RIGHT][i][2];
+            cube[RubiksCube.BOTTOM][2][i] = cube[RubiksCube.RIGHT][2-i][2];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.RIGHT][2-i][2] = tempRow[i];
+            cube[RubiksCube.RIGHT][i][2] = tempRow[i];
         }
     }
     public void rotateLeftClockwise(){

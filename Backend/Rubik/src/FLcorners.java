@@ -17,26 +17,24 @@ public class FLcorners {
     }
 
     private void solveFrontLeftCorner() {
-        // Step 1: Check the orientation and handle accordingly
         String orientationCase = getCornerRGWOrientationCase();
-
         switch (orientationCase) {
             case "correctlyOriented":
                 break;
             case "GRWOrientation":
-                executeRepeatingMoves("L'T'L T", 4);
+                executeRepeatingMoves("L` T` L T", 4);
                 break;
             case "RWGOrientation":
-                executeRepeatingMoves("L'T'L T", 2);
+                executeRepeatingMoves("L` T` L T", 2);
                 break;
             case "topWRGOrientation":
                 performMoves(new String[]{"T`", "L`", "T", "L"});
                 break;
             case "topGWROrientation":
-                executeRepeatingMoves("L'T'L T", 1);
+                executeRepeatingMoves("L` T` L T", 1);
                 break;
             case "topRGWOrientation":
-                executeRepeatingMoves("L'T'L T", 3);
+                executeRepeatingMoves("L` T` L T", 3);
                 break;
             default:
                 handleMisalignedFrontLeftCorner();
@@ -47,7 +45,7 @@ public class FLcorners {
         // Logic to determine the orientation of the corner piece and return a case identifier
         if (cube[5][0][0] == 'W' && cube[1][2][0] == 'G') {
             return "correctlyOriented";
-        } else if (cube[5][0][0] == 'R' && cube[2][2][0] == 'W') {
+        } else if (cube[5][0][0] == 'R' && cube[1][2][0] == 'W') {
             return "GRWOrientation";
         } else if (cube[5][0][0] == 'G' && cube[2][2][0] == 'R') {
             return "RWGOrientation";
@@ -114,7 +112,6 @@ public class FLcorners {
                 performMoves(new String[]{"R", "T", "R`"});
                 break;
             case "BottomBackRightCorner":
-                // Perform T' L' T L
                 performMoves(new String[]{"Ba", "T", "T" , "Ba`"});
                 break;
             case "BottomBackLeftCorner":
@@ -138,23 +135,24 @@ public class FLcorners {
     }
     private void solveFrontRightCorner() {
         String orientationCase = getCornerROWOrientationCase();
+        System.out.println(orientationCase);
         switch (orientationCase) {
             case "correctlyOriented":
                 break;
             case "OWGOrientation":
-                executeRepeatingMoves("RTR`T`", 4);
+                executeRepeatingMoves("R T R` T`", 4);
                 break;
             case "WGOOrientation":
-                executeRepeatingMoves("RTR`T`", 2);
+                executeRepeatingMoves("R T R` T`", 2);
                 break;
             case "topWOGOrientation":
                 performMoves(new String[]{"T", "R", "T`", "R`"});
                 break;
             case "topGWOrientation":
-                executeRepeatingMoves("RTR`T`", 1);
+                executeRepeatingMoves("R T R` T`", 1);
                 break;
             case "topOGWOrientation":
-                executeRepeatingMoves("RTR`T`", 3);
+                executeRepeatingMoves("R T R` T`", 3);
                 break;
             default:
                 // Handle cases where the piece is on a different bottom corner or on the different top corner
@@ -167,10 +165,12 @@ public class FLcorners {
         if (cube[5][0][2] == 'W' && cube[1][2][2] == 'G') {
             return "correctlyOriented";
         } else if (cube[5][0][2] == 'G' && cube[1][2][2] == 'O') {
+            System.out.println("Here");
             return "OWGOrientation";
         } else if (cube[5][0][2] == 'O' && cube[1][2][2] == 'W') {
-            return "WGOOrientation";
-        } else if (cube[1][0][2] == 'W' && cube[0][2][2] == 'G') {
+            System.out.println("how");
+        return "WGOOrientation";
+    }else if (cube[1][0][2] == 'W' && cube[0][2][2] == 'G') {
             return "topWOGOrientation";
         } else if (cube[1][0][2] == 'G' && cube[0][2][2] == 'O') {
             return "topGWOrientation";
@@ -252,21 +252,19 @@ public class FLcorners {
             case "correctlyOriented":
                 break;
             case "WBOOrientation":
-                executeRepeatingMoves("BaTBa`T`", 2);
+                executeRepeatingMoves("Ba T Ba` T`", 2);
                 break;
             case "OWBOrientation":
-                // Perform T' L' T L
-                executeRepeatingMoves("BaTBa`T`", 4);
+                executeRepeatingMoves("Ba T Ba` T`", 4);
                 break;
             case "topWOBOrientation":
-                // Perform L' T' L T
                 performMoves(new String[]{"Ba", "T", "Ba`", "T`"});
                 break;
             case "topBWOrientation":
-                executeRepeatingMoves("TBaT`Ba`", 1);
+                executeRepeatingMoves("T Ba T` Ba`", 1);
                 break;
             case "topOBWOrientation":
-                executeRepeatingMoves("BaTBa`T`", 3);
+                executeRepeatingMoves("Ba T Ba` T`", 3);
                 break;
             default:
                 // Handle cases where the piece is on a different bottom corner or on the different top corner
@@ -276,6 +274,7 @@ public class FLcorners {
     }
     private String getCornerBOWOrientationCase() {
         if (cube[5][2][2] == 'W' && cube[4][2][2] == 'O') {
+            System.out.println("inside");
             return "correctlyOriented";
         } else if (cube[5][2][2] == 'O' && cube[4][2][2] == 'B') {
             return "WBOOrientation";
@@ -333,7 +332,6 @@ public class FLcorners {
                 performMoves(new String[]{"T", "T"});
                 break;
             case "TopFrontRightCorner":
-                // Perform T' L' T L
                 performMoves(new String[]{"T`"});
                 break;
             case "TopBackLeftCorner":
@@ -347,21 +345,19 @@ public class FLcorners {
             case "correctlyOriented":
                 break;
             case "RWBOrientation":
-                executeRepeatingMoves("Ba`T`BaT", 4);
+                executeRepeatingMoves("Ba` T` Ba T", 4);
                 break;
             case "WBROrientation":
-                // Perform T' L' T L
-                executeRepeatingMoves("Ba`T`BaT", 2);
+                executeRepeatingMoves("Ba` T` Ba T", 2);
                 break;
             case "topBWROrientation":
-                // Perform L' T' L T
                 performMoves(new String[]{"T`", "Ba`", "T", "Ba"});
                 break;
             case "topRBWOrientation":
-                executeRepeatingMoves("Ba`T`BaT", 3);
+                executeRepeatingMoves("Ba` T` Ba T", 3);
                 break;
             case "topWRBOrientation":
-                executeRepeatingMoves("Ba`T`BaT", 1);
+                executeRepeatingMoves("Ba` T` Ba T", 1);
                 break;
             default:
                 // Handle cases where the piece is on a different bottom corner or on the different top corner
@@ -431,7 +427,7 @@ public class FLcorners {
     }
     private void executeRepeatingMoves(String moves, int times) {
         for (int i = 0; i < times; i++) {
-            String[] movesArray = moves.split(" ");
+            String[] movesArray = moves.trim().split("\\s+");
             performMoves(movesArray);
         }
     }

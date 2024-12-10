@@ -277,7 +277,7 @@ public class F2L {
                 performMoves(new String[]{"T", "BRAlgo"});
                 break;
             case ("RightBROrientation"):
-                performMoves(new String[]{" srBRAlgo"});
+                performMoves(new String[]{"BRAlgo"});
                 break;
             default:
                 handleMisalignedBackLeft();
