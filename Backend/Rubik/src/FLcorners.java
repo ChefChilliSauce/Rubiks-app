@@ -28,7 +28,7 @@ public class FLcorners {
                 executeRepeatingMoves("L` T` L T", 2);
                 break;
             case "topWRGOrientation":
-                performMoves(new String[]{"T`", "L`", "T", "L"});
+                cubeMoves.performMoves(new String[]{"T`", "L`", "T", "L"});
                 break;
             case "topGWROrientation":
                 executeRepeatingMoves("L` T` L T", 1);
@@ -109,13 +109,13 @@ public class FLcorners {
     private void movePieceToTopC1(String pos) {
         switch (pos) {
             case "BottomFrontRightCorner":
-                performMoves(new String[]{"R", "T", "R`"});
+                cubeMoves.performMoves(new String[]{"R", "T", "R`"});
                 break;
             case "BottomBackRightCorner":
-                performMoves(new String[]{"Ba", "T", "T" , "Ba`"});
+                cubeMoves.performMoves(new String[]{"Ba", "T", "T" , "Ba`"});
                 break;
             case "BottomBackLeftCorner":
-                performMoves(new String[]{"Ba`", "T`", "Ba"});
+                cubeMoves.performMoves(new String[]{"Ba`", "T`", "Ba"});
                 break;
         }
     }
@@ -123,13 +123,13 @@ public class FLcorners {
     private void alignTopLayerC1(String pos) {
         switch (pos) {
             case "TopFrontRightCorner":
-                performMoves(new String[]{"T"});
+                cubeMoves.performMoves(new String[]{"T"});
                 break;
             case "TopBackRightCorner":
-                performMoves(new String[]{"T", "T"});
+                cubeMoves.performMoves(new String[]{"T", "T"});
                 break;
             case "TopBackLeftCorner":
-                performMoves(new String[]{"T`"});
+                cubeMoves.performMoves(new String[]{"T`"});
                 break;
         }
     }
@@ -146,7 +146,7 @@ public class FLcorners {
                 executeRepeatingMoves("R T R` T`", 2);
                 break;
             case "topWOGOrientation":
-                performMoves(new String[]{"T", "R", "T`", "R`"});
+                cubeMoves.performMoves(new String[]{"T", "R", "T`", "R`"});
                 break;
             case "topGWOrientation":
                 executeRepeatingMoves("R T R` T`", 1);
@@ -225,10 +225,10 @@ public class FLcorners {
     private void movePieceToTopC2(String pos) {
         switch (pos) {
             case "BottomBackRightCorner":
-                performMoves(new String[]{"Ba", "T", "Ba`"});
+                cubeMoves.performMoves(new String[]{"Ba", "T", "Ba`"});
                 break;
             case "BottomBackLeftCorner":
-                performMoves(new String[]{"Ba`", "T", "T" , "Ba"});
+                cubeMoves.performMoves(new String[]{"Ba`", "T", "T" , "Ba"});
                 break;
         }
     }
@@ -236,13 +236,13 @@ public class FLcorners {
     private void alignTopLayerC2(String pos) {
         switch (pos) {
             case "TopFrontLeftCorner":
-                performMoves(new String[]{"T`"});
+                cubeMoves.performMoves(new String[]{"T`"});
                 break;
             case "TopBackRightCorner":
-                performMoves(new String[]{"T"});
+                cubeMoves.performMoves(new String[]{"T"});
                 break;
             case "TopBackLeftCorner":
-                performMoves(new String[]{"T", "T"});
+                cubeMoves.performMoves(new String[]{"T", "T"});
                 break;
         }
     }
@@ -258,7 +258,7 @@ public class FLcorners {
                 executeRepeatingMoves("Ba T Ba` T`", 4);
                 break;
             case "topWOBOrientation":
-                performMoves(new String[]{"Ba", "T", "Ba`", "T`"});
+                cubeMoves.performMoves(new String[]{"Ba", "T", "Ba`", "T`"});
                 break;
             case "topBWOrientation":
                 executeRepeatingMoves("T Ba T` Ba`", 1);
@@ -292,7 +292,7 @@ public class FLcorners {
     private void   handleMisalignedBackRightCorner() {
         String position = positionTopOrBottomC3();
         if (position.equals( "BottomBackLeftCorner")) {
-            performMoves(new String[]{"Ba`", "T", "T", "Ba"});
+            cubeMoves.performMoves(new String[]{"Ba`", "T", "T", "Ba"});
             solveBackRightCorner(); // Recursively call with piece in the top corner
         } else if (position.equals("TopFrontLeftCorner") || position.equals( "TopBackLeftCorner") || position.equals( "TopFrontRightCorner")) {
             alignTopLayerC3(position);
@@ -329,13 +329,13 @@ public class FLcorners {
     private void alignTopLayerC3(String pos) {
         switch (pos) {
             case "TopFrontLeftCorner":
-                performMoves(new String[]{"T", "T"});
+                cubeMoves.performMoves(new String[]{"T", "T"});
                 break;
             case "TopFrontRightCorner":
-                performMoves(new String[]{"T`"});
+                cubeMoves.performMoves(new String[]{"T`"});
                 break;
             case "TopBackLeftCorner":
-                performMoves(new String[]{"T"});
+                cubeMoves.performMoves(new String[]{"T"});
                 break;
         }
     }
@@ -351,7 +351,7 @@ public class FLcorners {
                 executeRepeatingMoves("Ba` T` Ba T", 2);
                 break;
             case "topBWROrientation":
-                performMoves(new String[]{"T`", "Ba`", "T", "Ba"});
+                cubeMoves.performMoves(new String[]{"T`", "Ba`", "T", "Ba"});
                 break;
             case "topRBWOrientation":
                 executeRepeatingMoves("Ba` T` Ba T", 3);
@@ -415,62 +415,20 @@ public class FLcorners {
     private void alignTopLayerC4(String pos) {
         switch (pos) {
             case "TopFrontRightCorner":
-                performMoves(new String[]{"T", "T"});
+                cubeMoves.performMoves(new String[]{"T", "T"});
                 break;
             case "TopBackRightCorner":
-                performMoves(new String[]{"T`"});
+                cubeMoves.performMoves(new String[]{"T`"});
                 break;
             case "TopFrontLeftCorner":
-                performMoves(new String[]{"T"});
+                cubeMoves.performMoves(new String[]{"T"});
                 break;
         }
     }
     private void executeRepeatingMoves(String moves, int times) {
         for (int i = 0; i < times; i++) {
             String[] movesArray = moves.trim().split("\\s+");
-            performMoves(movesArray);
-        }
-    }
-    private void performMoves(String[] moves) {
-        for (String move : moves) {
-            switch (move) {
-                case "T":
-                    cubeMoves.rotateTopClockwise();
-                    break;
-                case "T`":
-                    cubeMoves.rotateTopCounterClockwise();
-                    break;
-                case "F":
-                    cubeMoves.rotateFrontClockwise();
-                    break;
-                case "F`":
-                    cubeMoves.rotateFrontCounterClockwise();
-                    break;
-                case "L":
-                    cubeMoves.rotateLeftClockwise();
-                    break;
-                case "L`":
-                    cubeMoves.rotateLeftCounterClockwise();
-                    break;
-                case "Ba":
-                    cubeMoves.rotateBackClockwise();
-                    break;
-                case "Ba`":
-                    cubeMoves.rotateBackCounterClockwise();
-                    break;
-                case "R":
-                    cubeMoves.rotateRightClockwise();
-                    break;
-                case "R`":
-                    cubeMoves.rotateRightCounterClockwise();
-                    break;
-                case "B":
-                    cubeMoves.rotateBottomClockwise();
-                    break;
-                case "B`":
-                    cubeMoves.rotateBottomCounterClockwise();
-                    break;
-            }
+            cubeMoves.performMoves(movesArray);
         }
     }
 }
