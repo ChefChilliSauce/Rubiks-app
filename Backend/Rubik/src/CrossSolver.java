@@ -19,81 +19,81 @@ public class CrossSolver {
         String coordinates = getEdgeCoordinates('G');
         switch (coordinates){
             case "TopAndFront":
-                performMoves(new String[]{"T`" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"T`" , "R`" , "F" , "R"});
                 break;
             case "TopAndLeft":
-                performMoves(new String[]{"T" , "T" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"T" , "T" , "R`" , "F" , "R"});
                 break;
             case "TopAndBack":
-                performMoves(new String[]{"T" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"T" , "R`" , "F" , "R"});
                 break;
             case "TopAndRight":
-                performMoves(new String[]{"R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"R`" , "F" , "R"});
                 break;
             case "BottomAndFront":
-                performMoves(new String[]{"F" , "F" , "T`" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"F" , "F" , "T`" , "R`" , "F" , "R"});
                 break;
             case "BottomAndLeft":
-                performMoves(new String[]{"L" , "L" , "T`" , "T`" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"L" , "L" , "T`" , "T`" , "R`" , "F" , "R"});
                 break;
             case "BottomAndBack":
-                performMoves(new String[]{"Ba" , "Ba" , "T" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"Ba" , "Ba" , "T" , "R`" , "F" , "R"});
                 break;
             case "BottomAndRight":
-                performMoves(new String[]{"R`" , "F"});
+                cubeMoves.performMoves(new String[]{"R`" , "F"});
                 break;
             case "FrontAndLeft":
             case"WhiteLeftAndFront":
-                performMoves(new String[]{"F`"});
+                cubeMoves.performMoves(new String[]{"F`"});
                 break;
             case "FrontAndRight":
             case "WhiteRightAndFront":
-                performMoves(new String[]{"F"});
+                cubeMoves.performMoves(new String[]{"F"});
                 break;
             case "LeftAndBack":
             case"WhiteBackAndLeft":
-                performMoves(new String[]{"L" , "L" , "F" , "L" , "L" , "T`" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"L" , "L" , "F" , "L" , "L" , "T`" , "R`" , "F" , "R"});
                 break;
             case "LeftAndFront":
             case "WhiteFrontAndLeft":
-                performMoves(new String[]{"F" , "T`" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"F" , "T`" , "R`" , "F" , "R"});
                 break;
             case "BackAndRight":
             case "WhiteRightAndBack":
-                performMoves(new String[]{"R`" , "T`" , "R" , "T" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"R`" , "T`" , "R" , "T" , "R`" , "F" , "R"});
                 break;
             case "BackAndLeft":
             case"WhiteLeftAndBack":
-                performMoves(new String[]{"L" , "T" , "L`" , "T" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"L" , "T" , "L`" , "T" , "R`" , "F" , "R"});
                 break;
             case "RightAndBack":
             case"WhiteBackAndRight":
-                performMoves(new String[]{"Ba" , "T" , "Ba`" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"Ba" , "T" , "Ba`" , "R`" , "F" , "R"});
                 break;
             case "RightAndFront":
             case "WhiteFrontAndRight":
-                performMoves(new String[]{"F`" , "T`" , "R`" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"F`" , "T`" , "R`" , "F" , "R"});
                 break;
             case "WhiteTopAndFront":
-                performMoves(new String[]{"F" , "F" });
+                cubeMoves.performMoves(new String[]{"F" , "F" });
                 break;
             case "WhiteTopAndLeft":
-                performMoves(new String[]{"T`" , "F" , "F"});
+                cubeMoves.performMoves(new String[]{"T`" , "F" , "F"});
                 break;
             case "WhiteTopAndBack":
-                performMoves(new String[]{"T" , "T" , "F" , "F"});
+                cubeMoves.performMoves(new String[]{"T" , "T" , "F" , "F"});
                 break;
             case "WhiteTopAndRight":
-                performMoves(new String[]{"T" , "F" , "F"});
+                cubeMoves.performMoves(new String[]{"T" , "F" , "F"});
                 break;
             case "WhiteBottomAndLeft":
-                performMoves(new String[]{"L" , "L" , "T`" , "F" , "F"});
+                cubeMoves.performMoves(new String[]{"L" , "L" , "T`" , "F" , "F"});
                 break;
             case "WhiteBottomAndBack":
-                performMoves(new String[]{"Ba" , "Ba" , "T" , "T" , "F" , "F"});
+                cubeMoves.performMoves(new String[]{"Ba" , "Ba" , "T" , "T" , "F" , "F"});
                 break;
             case "WhiteBottomAndRight":
-                performMoves(new String[]{"R" , "R" , "T" , "F" , "F"});
+                cubeMoves.performMoves(new String[]{"R" , "R" , "T" , "F" , "F"});
                 break;
         }
     }
@@ -104,75 +104,75 @@ public class CrossSolver {
         String coordinates = getEdgeCoordinates('R');
         switch (coordinates){
             case "TopAndFront":
-                performMoves(new String[]{"F`" , "L" , "F" });
+                cubeMoves.performMoves(new String[]{"F`" , "L" , "F" });
                 break;
             case "TopAndLeft":
-                performMoves(new String[]{"T`" ,  "F`" , "L" , "F"});
+                cubeMoves.performMoves(new String[]{"T`" ,  "F`" , "L" , "F"});
                 break;
             case "TopAndBack":
-                performMoves(new String[]{"T" , "T" ,  "F`" , "L" , "F"});
+                cubeMoves.performMoves(new String[]{"T" , "T" ,  "F`" , "L" , "F"});
                 break;
             case "TopAndRight":
-                performMoves(new String[]{"T" ,  "F`" , "L" , "F"});
+                cubeMoves.performMoves(new String[]{"T" ,  "F`" , "L" , "F"});
                 break;
             case "BottomAndLeft":
-                performMoves(new String[]{"L" , "L" , "T`" ,  "F`" , "L" , "F"});
+                cubeMoves.performMoves(new String[]{"L" , "L" , "T`" ,  "F`" , "L" , "F"});
                 break;
             case "BottomAndBack":
-                performMoves(new String[]{"Ba" , "Ba" , "T" , "T" ,  "F`" , "L" , "F"});
+                cubeMoves.performMoves(new String[]{"Ba" , "Ba" , "T" , "T" ,  "F`" , "L" , "F"});
                 break;
             case "BottomAndRight":
-                performMoves(new String[]{"R" , "R" , "T" ,  "F`" , "L" , "F"});
+                cubeMoves.performMoves(new String[]{"R" , "R" , "T" ,  "F`" , "L" , "F"});
                 break;
             case "FrontAndLeft":
             case"WhiteLeftAndFront":
-                performMoves(new String[]{"L`" , "T`" ,  "F`" , "L" , "F"});
+                cubeMoves.performMoves(new String[]{"L`" , "T`" ,  "F`" , "L" , "F"});
                 break;
             case "FrontAndRight":
             case "WhiteRightAndFront":
-                performMoves(new String[]{"R`" ,"T" ,  "F`" , "L" , "F" , "R`"});
+                cubeMoves.performMoves(new String[]{"R`" ,"T" ,  "F`" , "L" , "F" , "R`"});
                 break;
             case "LeftAndBack":
             case"WhiteBackAndLeft":
-                performMoves(new String[]{"L`"});
+                cubeMoves.performMoves(new String[]{"L`"});
                 break;
             case "LeftAndFront":
             case "WhiteFrontAndLeft":
-                performMoves(new String[]{"L"});
+                cubeMoves.performMoves(new String[]{"L"});
                 break;
             case "BackAndRight":
             case "WhiteRightAndBack":
-                performMoves(new String[]{"R`" , "T" ,  "F`" , "L" , "F" , "R"});
+                cubeMoves.performMoves(new String[]{"R`" , "T" ,  "F`" , "L" , "F" , "R"});
                 break;
             case "BackAndLeft":
             case"WhiteLeftAndBack":
-                performMoves(new String[]{"L" , "T`" ,  "F`" , "L" , "F"});
+                cubeMoves.performMoves(new String[]{"L" , "T`" ,  "F`" , "L" , "F"});
                 break;
             case "RightAndBack":
             case"WhiteBackAndRight":
-                performMoves(new String[]{"Ba" , "T" , "T" , "F`" , "L" , "F" , "Ba"});
+                cubeMoves.performMoves(new String[]{"Ba" , "T" , "T" , "F`" , "L" , "F" , "Ba"});
                 break;
             case "RightAndFront":
             case "WhiteFrontAndRight":
-                performMoves(new String[]{"F" , "F" , "L" , "F" , "F"});
+                cubeMoves.performMoves(new String[]{"F" , "F" , "L" , "F" , "F"});
                 break;
             case "WhiteTopAndFront":
-                performMoves(new String[]{"T" , "L" , "L"});
+                cubeMoves.performMoves(new String[]{"T" , "L" , "L"});
                 break;
             case "WhiteTopAndLeft":
-                performMoves(new String[]{"L" , "L"});
+                cubeMoves.performMoves(new String[]{"L" , "L"});
                 break;
             case "WhiteTopAndBack":
-                performMoves(new String[]{"T`"  , "L" , "L"});
+                cubeMoves.performMoves(new String[]{"T`"  , "L" , "L"});
                 break;
             case "WhiteTopAndRight":
-                performMoves(new String[]{"T" , "T" , "L" , "L"});
+                cubeMoves.performMoves(new String[]{"T" , "T" , "L" , "L"});
                 break;
             case "WhiteBottomAndBack":
-                performMoves(new String[]{"Ba" , "Ba" , "T`" , "L" , "L"});
+                cubeMoves.performMoves(new String[]{"Ba" , "Ba" , "T`" , "L" , "L"});
                 break;
             case "WhiteBottomAndRight":
-                performMoves(new String[]{"R" , "R" , "T" , "T" , "L" , "L"});
+                cubeMoves.performMoves(new String[]{"R" , "R" , "T" , "T" , "L" , "L"});
                 break;
         }
     }
@@ -183,69 +183,69 @@ public class CrossSolver {
         String coordinates = getEdgeCoordinates('B');
         switch (coordinates){
             case "TopAndFront":
-                performMoves(new String[]{"T`" , "R" , "Ba`" , "R`" });
+                cubeMoves.performMoves(new String[]{"T`" , "R" , "Ba`" , "R`" });
                 break;
             case "TopAndLeft":
-                performMoves(new String[]{"T" ,  "T" ,  "R" , "Ba`" , "R`" });
+                cubeMoves.performMoves(new String[]{"T" ,  "T" ,  "R" , "Ba`" , "R`" });
                 break;
             case "TopAndBack":
-                performMoves(new String[]{"T" ,  "R" , "Ba`" , "R`" });
+                cubeMoves.performMoves(new String[]{"T" ,  "R" , "Ba`" , "R`" });
                 break;
             case "TopAndRight":
-                performMoves(new String[]{ "R" , "Ba`" , "R`" });
+                cubeMoves.performMoves(new String[]{ "R" , "Ba`" , "R`" });
                 break;
             case "BottomAndBack":
-                performMoves(new String[]{"Ba" , "Ba" , "T" ,  "R" , "Ba`" , "R`" });
+                cubeMoves.performMoves(new String[]{"Ba" , "Ba" , "T" ,  "R" , "Ba`" , "R`" });
                 break;
             case "BottomAndRight":
-                performMoves(new String[]{"R`" , "Ba`"});
+                cubeMoves.performMoves(new String[]{"R`" , "Ba`"});
                 break;
             case "FrontAndLeft":
             case"WhiteLeftAndFront":
-                performMoves(new String[]{"F" , "T`" ,  "T" , "Ba" , "Ba" , "F`"});
+                cubeMoves.performMoves(new String[]{"F" , "T`" ,  "T" , "Ba" , "Ba" , "F`"});
                 break;
             case "FrontAndRight":
             case "WhiteRightAndFront":
-                performMoves(new String[]{"F`" , "T`" ,  "T" , "Ba" , "Ba" , "F"});
+                cubeMoves.performMoves(new String[]{"F`" , "T`" ,  "T" , "Ba" , "Ba" , "F"});
                 break;
             case "LeftAndBack":
             case"WhiteBackAndLeft":
-                performMoves(new String[]{"Ba" , "T" ,  "R" , "Ba`" , "R`"});
+                cubeMoves.performMoves(new String[]{"Ba" , "T" ,  "R" , "Ba`" , "R`"});
                 break;
             case "LeftAndFront":
             case "WhiteFrontAndLeft":
-                performMoves(new String[]{"F" , "T`" ,  "R" , "Ba`" , "R`" , "F`"});
+                cubeMoves.performMoves(new String[]{"F" , "T`" ,  "R" , "Ba`" , "R`" , "F`"});
                 break;
             case "BackAndRight":
             case "WhiteRightAndBack":
-                performMoves(new String[]{"Ba`"});
+                cubeMoves.performMoves(new String[]{"Ba`"});
                 break;
             case "BackAndLeft":
             case"WhiteLeftAndBack":
-                performMoves(new String[]{"Ba"});
+                cubeMoves.performMoves(new String[]{"Ba"});
                 break;
             case "RightAndBack":
             case"WhiteBackAndRight":
-                performMoves(new String[]{"R`" , "T`" , "R" , "Ba"  , "Ba"});
+                cubeMoves.performMoves(new String[]{"R`" , "T`" , "R" , "Ba"  , "Ba"});
                 break;
             case "RightAndFront":
             case "WhiteFrontAndRight":
-                performMoves(new String[]{"R`" , "T`" , "Ba" , "Ba" , "R"});
+                cubeMoves.performMoves(new String[]{"R`" , "T`" , "Ba" , "Ba" , "R"});
                 break;
             case "WhiteTopAndFront":
-                performMoves(new String[]{"T" , "T" , "Ba" , "Ba"});
+                cubeMoves.performMoves(new String[]{"T" , "T" , "Ba" , "Ba"});
                 break;
             case "WhiteTopAndLeft":
-                performMoves(new String[]{"T" , "Ba" , "Ba"});
+                cubeMoves.performMoves(new String[]{"T" , "Ba" , "Ba"});
                 break;
             case "WhiteTopAndBack":
-                performMoves(new String[]{ "Ba" , "Ba"});
+                cubeMoves.performMoves(new String[]{ "Ba" , "Ba"});
                 break;
             case "WhiteTopAndRight":
-                performMoves(new String[]{"T`" , "Ba" , "Ba"});
+                cubeMoves.performMoves(new String[]{"T`" , "Ba" , "Ba"});
                 break;
             case "WhiteBottomAndRight":
-                performMoves(new String[]{"R" , "R" , "T`" , "Ba" , "Ba"});
+                cubeMoves.performMoves(new String[]{"R" , "R" , "T`" , "Ba" , "Ba"});
                 break;
         }
     }
@@ -256,63 +256,63 @@ public class CrossSolver {
         String coordinates = getEdgeCoordinates('O');
         switch (coordinates){
             case "TopAndFront":
-                performMoves(new String[]{"F`" , "R`" , "F"});
+                cubeMoves.performMoves(new String[]{"F`" , "R`" , "F"});
                 break;
             case "TopAndLeft":
-                performMoves(new String[]{"T`" , "F`" , "R`" , "F" });
+                cubeMoves.performMoves(new String[]{"T`" , "F`" , "R`" , "F" });
                 break;
             case "TopAndBack":
-                performMoves(new String[]{"T" , "T" ,  "F`" , "R`" , "F" });
+                cubeMoves.performMoves(new String[]{"T" , "T" ,  "F`" , "R`" , "F" });
                 break;
             case "TopAndRight":
-                performMoves(new String[]{ "T" , "F`" , "R`" , "F" });
+                cubeMoves.performMoves(new String[]{ "T" , "F`" , "R`" , "F" });
                 break;
             case "BottomAndRight":
-                performMoves(new String[]{"R" , "R" , "T" , "F`" , "R`" , "F"});
+                cubeMoves.performMoves(new String[]{"R" , "R" , "T" , "F`" , "R`" , "F"});
                 break;
             case "FrontAndLeft":
             case"WhiteLeftAndFront":
-                performMoves(new String[]{"F" , "T`" ,  "R" , "R" , "F`"});
+                cubeMoves.performMoves(new String[]{"F" , "T`" ,  "R" , "R" , "F`"});
                 break;
             case "FrontAndRight":
             case "WhiteRightAndFront":
-                performMoves(new String[]{"F`" , "T`" ,  "F" , "R" , "R"});
+                cubeMoves.performMoves(new String[]{"F`" , "T`" ,  "F" , "R" , "R"});
                 break;
             case "LeftAndBack":
             case"WhiteBackAndLeft":
-                performMoves(new String[]{"L" , "T" ,  "T" , "R" , "R" , "L`"});
+                cubeMoves.performMoves(new String[]{"L" , "T" ,  "T" , "R" , "R" , "L`"});
                 break;
             case "LeftAndFront":
             case "WhiteFrontAndLeft":
-                performMoves(new String[]{"L`" , "T" ,  "T" , "R" , "R" , "L"});
+                cubeMoves.performMoves(new String[]{"L`" , "T" ,  "T" , "R" , "R" , "L"});
                 break;
             case "BackAndRight":
             case "WhiteRightAndBack":
-                performMoves(new String[]{"Ba" , "T" , "Ba`" , "R" , "R"});
+                cubeMoves.performMoves(new String[]{"Ba" , "T" , "Ba`" , "R" , "R"});
                 break;
             case "BackAndLeft":
             case"WhiteLeftAndBack":
-                performMoves(new String[]{"Ba`" , "T" , "Ba" , "R" , "R"});
+                cubeMoves.performMoves(new String[]{"Ba`" , "T" , "Ba" , "R" , "R"});
                 break;
             case "RightAndBack":
             case"WhiteBackAndRight":
-                performMoves(new String[]{"R" });
+                cubeMoves.performMoves(new String[]{"R" });
                 break;
             case "RightAndFront":
             case "WhiteFrontAndRight":
-                performMoves(new String[]{"R`"});
+                cubeMoves.performMoves(new String[]{"R`"});
                 break;
             case "WhiteTopAndFront":
-                performMoves(new String[]{"T`" , "R" , "R"});
+                cubeMoves.performMoves(new String[]{"T`" , "R" , "R"});
                 break;
             case "WhiteTopAndLeft":
-                performMoves(new String[]{"T" , "T" , "R" , "R"});
+                cubeMoves.performMoves(new String[]{"T" , "T" , "R" , "R"});
                 break;
             case "WhiteTopAndBack":
-                performMoves(new String[]{ "T" , "R" , "R"});
+                cubeMoves.performMoves(new String[]{ "T" , "R" , "R"});
                 break;
             case "WhiteTopAndRight":
-                performMoves(new String[]{"R" , "R"});
+                cubeMoves.performMoves(new String[]{"R" , "R"});
                 break;
         }
     }
@@ -371,48 +371,5 @@ public class CrossSolver {
             case 'p' -> "RightAndFront";
             default -> "None";
         };
-    }
-
-    private void performMoves(String[] moves) {//Method for all moves to improve readability of code converted to a method
-        for (String move : moves) {
-            switch (move) {
-                case "T":
-                    cubeMoves.rotateTopClockwise();
-                    break;
-                case "T`":
-                    cubeMoves.rotateTopCounterClockwise();
-                    break;
-                case "F":
-                    cubeMoves.rotateFrontClockwise();
-                    break;
-                case "F`":
-                    cubeMoves.rotateFrontCounterClockwise();
-                    break;
-                case "L":
-                    cubeMoves.rotateLeftClockwise();
-                    break;
-                case "L`":
-                    cubeMoves.rotateLeftCounterClockwise();
-                    break;
-                case "Ba":
-                    cubeMoves.rotateBackClockwise();
-                    break;
-                case "Ba`":
-                    cubeMoves.rotateBackCounterClockwise();
-                    break;
-                case "R":
-                    cubeMoves.rotateRightClockwise();
-                    break;
-                case "R`":
-                    cubeMoves.rotateRightCounterClockwise();
-                    break;
-                case "B":
-                    cubeMoves.rotateBottomClockwise();
-                    break;
-                case "B`":
-                    cubeMoves.rotateBottomCounterClockwise();
-                    break;
-            }
-        }
     }
 }
