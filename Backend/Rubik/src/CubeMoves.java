@@ -288,12 +288,6 @@ public class CubeMoves {
             cube[RubiksCube.LEFT][i][1] = temp[2-i];
         }
     }
-    public void rotateMiddleBackFrontClockwise(){
-        rotateMiddleFrontBackCounterClockwise();
-    }
-    public void rotateMiddleBackFrontCounterClockwise(){
-        rotateMiddleFrontBackClockwise();
-    }
     public void rotateMiddleRightLeftClockwise() {
         char[] temp = new char[3];
         for (int i = 0 ; i < 3 ; i++){
@@ -330,12 +324,6 @@ public class CubeMoves {
             cube[RubiksCube.FRONT][i][1] = temp[i];
         }
     }
-    public void rotateMiddleLeftRightClockwise(){
-        rotateMiddleRightLeftCounterClockwise();
-    }
-    public void rotateMiddleLeftRightCounterClockwise(){
-        rotateMiddleRightLeftClockwise();
-    }
     public void rotateDoubleFrontClockwise(){
         rotateFrontClockwise();
         rotateMiddleFrontBackClockwise();
@@ -343,14 +331,6 @@ public class CubeMoves {
     public void rotateDoubleFrontCounterClockwise(){
         rotateFrontCounterClockwise();
         rotateMiddleFrontBackCounterClockwise();
-    }
-    public void rotateDoubleBackClockwise(){
-        rotateBackClockwise();
-        rotateMiddleBackFrontClockwise();
-    }
-    public void rotateDoubleBackCounterClockwise(){
-        rotateBackCounterClockwise();
-        rotateMiddleBackFrontCounterClockwise();
     }
     public void rotateDoubleRightClockwise(){
         rotateRightClockwise();
@@ -360,12 +340,382 @@ public class CubeMoves {
         rotateRightCounterClockwise();
         rotateMiddleRightLeftCounterClockwise();
     }
-    public void rotateDoubleLeftClockwise(){
-        rotateLeftClockwise();
-        rotateMiddleLeftRightClockwise();
+    public void performMoves(String[] moves) {//Method for all moves to improve readability of code converted to a method
+        for (String move : moves) {
+            switch (move) {
+                case "T":
+                    rotateTopClockwise();
+                    break;
+                case "T`":
+                    rotateTopCounterClockwise();
+                    break;
+                case "F":
+                    rotateFrontClockwise();
+                    break;
+                case "F`":
+                    rotateFrontCounterClockwise();
+                    break;
+                case "L":
+                    rotateLeftClockwise();
+                    break;
+                case "L`":
+                    rotateLeftCounterClockwise();
+                    break;
+                case "Ba":
+                    rotateBackClockwise();
+                    break;
+                case "Ba`":
+                    rotateBackCounterClockwise();
+                    break;
+                case "R":
+                    rotateRightClockwise();
+                    break;
+                case "R`":
+                    rotateRightCounterClockwise();
+                    break;
+                case "B":
+                    rotateBottomClockwise();
+                    break;
+                case "B`":
+                    rotateBottomCounterClockwise();
+                    break;
+            }
+        }
     }
-    public void rotateDoubleLeftCounterClockwise(){
-        rotateLeftCounterClockwise();
-        rotateMiddleLeftRightCounterClockwise();
+    public void performAlgoF2L(String[] moves) {//Method for all moves to improve readability of code converted to a method
+        for (String move : moves) {
+            switch (move) {
+                case "GRAlgo":
+                    rotateLeftCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateLeftClockwise();
+                    rotateTopClockwise();
+                    rotateFrontClockwise();
+                    rotateTopClockwise();
+                    rotateFrontCounterClockwise();
+                    break;
+                case"RGAlgo":
+                    rotateFrontClockwise();
+                    rotateTopClockwise();
+                    rotateFrontCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateLeftCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateLeftClockwise();
+                    break;
+                case "GOAlgo":
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateFrontCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateFrontClockwise();
+                    break;
+                case"OGAlgo":
+                    rotateFrontCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateFrontClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();;
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                case "BOAlgo":
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();;
+                    rotateBackClockwise();
+                    rotateTopClockwise();
+                    rotateBackCounterClockwise();
+                    break;
+                case"OBAlgo":
+                    rotateBackClockwise();
+                    rotateTopClockwise();
+                    rotateBackCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();;
+                    rotateTopCounterClockwise();
+                    rotateRightClockwise();
+                    break;
+                case "BRAlgo":
+                    rotateLeftClockwise();
+                    rotateTopCounterClockwise();
+                    rotateLeftCounterClockwise();
+                    rotateTopCounterClockwise();;
+                    rotateBackCounterClockwise();
+                    rotateTopClockwise();
+                    rotateBackClockwise();
+                    break;
+                case"RBAlgo":
+                    rotateBackCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateBackClockwise();
+                    rotateTopClockwise();
+                    rotateLeftClockwise();;
+                    rotateTopClockwise();
+                    rotateLeftCounterClockwise();
+                    break;
+                case"E1Algo":
+                    rotateTopCounterClockwise();
+                    rotateLeftCounterClockwise();
+                    rotateTopClockwise();
+                    rotateLeftClockwise();
+                    rotateTopClockwise();
+                    rotateFrontClockwise();
+                    rotateTopCounterClockwise();
+                    rotateFrontCounterClockwise();
+                    break;
+                case"E2Algo":
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateFrontCounterClockwise();
+                    rotateTopClockwise();
+                    rotateFrontClockwise();
+                    break;
+                case"E3Algo":
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateBackClockwise();
+                    rotateTopCounterClockwise();
+                    rotateBackCounterClockwise();
+                    break;
+                case"E4Algo":
+                    rotateTopClockwise();
+                    rotateLeftClockwise();
+                    rotateTopCounterClockwise();
+                    rotateLeftCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateBackCounterClockwise();
+                    rotateTopClockwise();
+                    rotateBackClockwise();
+                    break;
+            }
+        }
+    }
+    public void performAlgoOLL(String[] moves) {//Method for all moves to improve readability of code converted to a method
+        for (String move : moves) {
+            switch (move) {
+                case"algoDotCross":
+                    rotateFrontClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateFrontCounterClockwise();
+                    rotateDoubleFrontClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateDoubleFrontCounterClockwise();
+                    break;
+                case"algoICross":
+                    rotateFrontClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateFrontCounterClockwise();
+                    break;
+                case "algoLCross":
+                    rotateDoubleFrontClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateDoubleFrontCounterClockwise();
+                    break;
+                case "algoAntiSune":
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    break;
+                case "algoH":
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    break;
+                case "algoL":
+                    rotateFrontClockwise();
+                    rotateRightCounterClockwise();
+                    rotateFrontCounterClockwise();
+                    rotateDoubleRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateDoubleRightCounterClockwise();
+                    break;
+                case "algoPi":
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightClockwise();
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    break;
+                case "algoSune":
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    break;
+                case "algoT":
+                    rotateDoubleRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateDoubleRightCounterClockwise();
+                    rotateFrontClockwise();
+                    rotateRightClockwise();
+                    rotateFrontCounterClockwise();
+                    break;
+                case "algoU":
+                    rotateRightClockwise();
+                    rotateRightClockwise();
+                    rotateBottomClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateBottomCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    break;
+            }
+        }
+    }
+    public void performAlgoPLL(String[] moves) {//Method for all moves to improve readability of code converted to a method
+        for (String move : moves) {
+            switch (move) {
+                case "algoDiagonal":
+                    rotateFrontClockwise();
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateFrontCounterClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateFrontClockwise();
+                    rotateRightClockwise();
+                    rotateFrontCounterClockwise();
+                    break;
+                case "algoAdjacent":
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateFrontClockwise();
+                    rotateRightClockwise();
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateFrontCounterClockwise();
+                    break;
+                case "algoH":
+                    rotateMiddleRightLeftClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateTopClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateTopClockwise();
+                    rotateTopClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateTopClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    break;
+                case "algoUa":
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightClockwise();
+                    rotateRightClockwise();
+                    break;
+                case "algoUb":
+                    rotateRightClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopCounterClockwise();
+                    rotateRightCounterClockwise();
+                    rotateTopClockwise();
+                    rotateRightCounterClockwise();
+                    break;
+                case "algoZ":
+                    rotateMiddleRightLeftClockwise();
+                    rotateTopCounterClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateTopCounterClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateTopCounterClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateTopClockwise();
+                    rotateTopClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    rotateMiddleRightLeftClockwise();
+                    break;
+            }
+        }
     }
 }
