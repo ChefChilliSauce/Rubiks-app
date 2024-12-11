@@ -18,13 +18,13 @@ final private CubeMoves cubeMoves;
             case "orientationCross":
                 break;
             case "orientationCentreDot":
-                performMoves(new String[]{"dotOLL"});
+                cubeMoves.performAlgoOLL(new String[]{"algoDotCross"});
                 break;
             case "orientationI":
-                performMoves(new String[]{"iOLL"});
+                cubeMoves.performAlgoOLL(new String[]{"algoICross"});
                 break;
             case "orientationL":
-                performMoves(new String[]{"lOLL"});
+                cubeMoves.performAlgoOLL(new String[]{"algoLCross"});
                 break;
         }
     }
@@ -39,22 +39,22 @@ final private CubeMoves cubeMoves;
             return "orientationI";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] == 'Y') && (cube[0][1][0] != 'Y') && (cube[0][1][2] != 'Y') && (cube[0][2][1] == 'Y')){
-            performMoves(new String[]{"T"});
+            cubeMoves.performMoves(new String[]{"T"});
             return "orientationI";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] != 'Y') && (cube[0][1][0] != 'Y') && (cube[0][1][2] == 'Y') && (cube[0][2][1] == 'Y')){
             return "orientationL";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] != 'Y') && (cube[0][1][0] == 'Y') && (cube[0][1][2] != 'Y') && (cube[0][2][1] == 'Y')){
-            performMoves(new  String[]{"T`"});
+            cubeMoves.performMoves(new  String[]{"T`"});
             return "orientationL";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] == 'Y') && (cube[0][1][0] == 'Y') && (cube[0][1][2] != 'Y') && (cube[0][2][1] != 'Y')){
-            performMoves(new  String[]{"T" , "T"});
+            cubeMoves.performMoves(new  String[]{"T" , "T"});
             return "orientationL";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] == 'Y') && (cube[0][1][0] != 'Y') && (cube[0][1][2] == 'Y') && (cube[0][2][1] != 'Y')){
-            performMoves(new  String[]{"T"});
+            cubeMoves.performMoves(new  String[]{"T"});
             return "orientationL";
         }
         return"misaligned";
@@ -65,25 +65,25 @@ final private CubeMoves cubeMoves;
             case "orientationOLL":
                 break;
             case "orientationAntiSune":
-                performMoves(new String[]{"algoAntiSune"});
+                cubeMoves.performAlgoOLL(new String[]{"algoAntiSune"});
                 break;
             case "orientationH":
-                performMoves(new String[]{"algoH"});
+                cubeMoves.performAlgoOLL(new String[]{"algoH"});
                 break;
             case "orientationLSeg":
-                performMoves(new String[]{"algoL"});
+                cubeMoves.performAlgoOLL(new String[]{"algoL"});
                 break;
             case "orientationPi":
-                performMoves(new String[]{"algoPi"});
+                cubeMoves.performAlgoOLL(new String[]{"algoPi"});
                 break;
             case "orientationSune":
-                performMoves(new String[]{"algoSune"});
+                cubeMoves.performAlgoOLL(new String[]{"algoSune"});
                 break;
             case "orientationT":
-                performMoves(new String[]{"algoT"});
+                cubeMoves.performAlgoOLL(new String[]{"algoT"});
                 break;
             case "orientationU":
-                performMoves(new String[]{"algoU"});
+                cubeMoves.performAlgoOLL(new String[]{"algoU"});
                 break;
         }
     }
@@ -122,15 +122,15 @@ final private CubeMoves cubeMoves;
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[3][0][0] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][0] == 'Y'){
-            performMoves(new String[]{"T`"});
+            cubeMoves.performMoves(new String[]{"T`"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' &&  cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[4][0][0] == 'Y' && cube[3][0][0] == 'Y' && cube[2][0][0] == 'Y'){
-            performMoves(new String[]{"T" , "T"});
+            cubeMoves.performMoves(new String[]{"T" , "T"});
             return true;
         }
         else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][0] == 'Y' && cube[3][0][0] == 'Y'){
-            performMoves(new String[]{"T"});
+            cubeMoves.performMoves(new String[]{"T"});
             return true;
         }
         return false;
@@ -140,7 +140,7 @@ final private CubeMoves cubeMoves;
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y'){
-            performMoves(new String[]{"T"});
+            cubeMoves.performMoves(new String[]{"T"});
             return true;
         }
         return false;
@@ -150,15 +150,15 @@ final private CubeMoves cubeMoves;
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][2] == 'Y'){
-            performMoves(new String[]{"T`"});
+            cubeMoves.performMoves(new String[]{"T`"});
             return true;
         }
         else if((cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' &&cube[3][0][0] == 'Y' && cube[2][0][2] == 'Y')){
-            performMoves(new String[]{"T" , "T"});
+            cubeMoves.performMoves(new String[]{"T" , "T"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' &&  cube[4][0][0] == 'Y' && cube[3][0][2] == 'Y'){
-            performMoves(new String[]{"T"});
+            cubeMoves.performMoves(new String[]{"T"});
             return true;
         }
         return false;
@@ -168,15 +168,15 @@ final private CubeMoves cubeMoves;
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y' && cube[4][0][0] == 'Y'){
-            performMoves(new String[]{"T`"});
+            cubeMoves.performMoves(new String[]{"T`"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[3][0][2] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y'){
-            performMoves(new String[]{"T" , "T"});
+            cubeMoves.performMoves(new String[]{"T" , "T"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y' && cube[2][0][0] == 'Y' && cube[4][0][2] == 'Y'){
-            performMoves(new String[]{"T"});
+            cubeMoves.performMoves(new String[]{"T"});
             return true;
         }
         return false;
@@ -186,15 +186,15 @@ final private CubeMoves cubeMoves;
             return true;
         }
         else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[1][0][2] == 'Y' && cube[4][0][2] == 'Y') {
-            performMoves(new String[]{"T`"});
+            cubeMoves.performMoves(new String[]{"T`"});
             return true;
         }
        else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[3][0][2] == 'Y' && cube[2][0][2] == 'Y' && cube[1][0][2] == 'Y') {
-            performMoves(new String[]{"T", "T"});
+            cubeMoves.performMoves(new String[]{"T", "T"});
             return true;
         }
       else  if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[4][0][2] == 'Y' && cube[3][0][2] == 'Y' && cube[2][0][2] == 'Y') {
-            performMoves(new String[]{"T"});
+            cubeMoves.performMoves(new String[]{"T"});
             return true;
         }
         return false;
@@ -204,15 +204,15 @@ final private CubeMoves cubeMoves;
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[2][0][0] == 'Y' && cube[4][0][2] == 'Y') {
-            performMoves(new String[]{"T`"});
+            cubeMoves.performMoves(new String[]{"T`"});
             return true;
         }
         else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[3][0][0] == 'Y') {
-            performMoves(new String[]{"T", "T"});
+            cubeMoves.performMoves(new String[]{"T", "T"});
             return true;
         }
        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[4][0][0] == 'Y') {
-            performMoves(new String[]{"T"});
+            cubeMoves.performMoves(new String[]{"T"});
             return true;
         }
         return false;
@@ -222,179 +222,17 @@ final private CubeMoves cubeMoves;
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y') {
-            performMoves(new String[]{"T`"});
+            cubeMoves.performMoves(new String[]{"T`"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y') {
-            performMoves(new String[]{"T" , "T"});
+            cubeMoves.performMoves(new String[]{"T" , "T"});
             return true;
         }
         else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y') {
-            performMoves(new String[]{"T"});
+            cubeMoves.performMoves(new String[]{"T"});
             return true;
         }
         return false;
-    }
-    private void performMoves(String[] moves) {
-        for (String move : moves) {
-            switch (move) {
-                case "T":
-                    cubeMoves.rotateTopClockwise();
-                    break;
-                case "T`":
-                    cubeMoves.rotateTopCounterClockwise();
-                    break;
-                case "F":
-                    cubeMoves.rotateFrontClockwise();
-                    break;
-                case "F`":
-                    cubeMoves.rotateFrontCounterClockwise();
-                    break;
-                case "L":
-                    cubeMoves.rotateLeftClockwise();
-                    break;
-                case "L`":
-                    cubeMoves.rotateLeftCounterClockwise();
-                    break;
-                case "Ba":
-                    cubeMoves.rotateBackClockwise();
-                    break;
-                case "Ba`":
-                    cubeMoves.rotateBackCounterClockwise();
-                    break;
-                case "R":
-                    cubeMoves.rotateRightClockwise();
-                    break;
-                case "R`":
-                    cubeMoves.rotateRightCounterClockwise();
-                    break;
-                case "B":
-                    cubeMoves.rotateBottomClockwise();
-                    break;
-                case "B`":
-                    cubeMoves.rotateBottomCounterClockwise();
-                    break;
-                case "f":
-                    cubeMoves.rotateDoubleFrontClockwise();
-                    break;
-                case "f`":
-                    cubeMoves.rotateDoubleFrontCounterClockwise();
-                    break;
-                case"dotOLL":
-                    cubeMoves.rotateFrontClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateFrontCounterClockwise();
-                    cubeMoves.rotateDoubleFrontClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateDoubleFrontCounterClockwise();
-                    break;
-                case"iOLL":
-                    cubeMoves.rotateFrontClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateFrontCounterClockwise();
-                    break;
-                case "lOLL":
-                    cubeMoves.rotateDoubleFrontClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateDoubleFrontCounterClockwise();
-                    break;
-                case "algoAntiSune":
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    break;
-                case "algoH":
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    break;
-                case "algoL":
-                    cubeMoves.rotateFrontClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateFrontCounterClockwise();
-                    cubeMoves.rotateDoubleRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateDoubleRightCounterClockwise();
-                    break;
-                case "algoPi":
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    break;
-                case "algoSune":
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    break;
-                case "algoT":
-                    cubeMoves.rotateDoubleRightClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopCounterClockwise();
-                    cubeMoves.rotateDoubleRightCounterClockwise();
-                    cubeMoves.rotateFrontClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateFrontCounterClockwise();
-                    break;
-                case "algoU":
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateBottomClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightClockwise();
-                    cubeMoves.rotateBottomCounterClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateTopClockwise();
-                    cubeMoves.rotateRightCounterClockwise();
-                    break;
-            }
-        }
     }
 }
