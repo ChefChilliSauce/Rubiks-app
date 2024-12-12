@@ -20,7 +20,7 @@ public class CFOPSolver {
         crossSolver.solveWhiteCross();
         //System.out.println("White Cross Solved!");
         f2lSolver.solveSecondLayer();
-      ollSolver.solveOLL();
+        ollSolver.solveOLL();
         pllSolver.solvePLL();
     }
 
