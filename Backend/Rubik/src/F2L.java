@@ -50,7 +50,7 @@ public class F2L {
             return "correctlyOriented";
         } else if (cube[5][0][0] == 'R' && cube[1][2][0] == 'W') {
             return "GRWOrientation";
-        } else if (cube[5][0][0] == 'G' && cube[2][2][0] == 'R') {
+        } else if (cube[5][0][0] == 'G' && cube[1][2][0] == 'R') {
             return "RWGOrientation";
         } else if (cube[1][0][0] == 'W' && cube[0][2][0] == 'G') {
             return "topWRGOrientation";
@@ -83,9 +83,9 @@ public class F2L {
                 (cube[5][2][2] == 'R' && cube[3][2][0] == 'W' &&  cube[4][2][2] == 'G')) {
             return "BottomBackRightCorner";
         }
-        else if ((cube[5][2][0] == 'G' && cube[3][2][0] == 'W' &&  cube[2][2][0] == 'R')  ||
-                (cube[5][2][0] == 'W' && cube[3][2][0] == 'R' &&  cube[2][2][0] == 'G') ||
-                (cube[5][2][0] == 'R' && cube[3][2][0] == 'G' &&  cube[2][2][0] == 'W')) {
+        else if ((cube[5][2][0] == 'G' && cube[3][2][2] == 'W' &&  cube[2][2][0] == 'R')  ||
+                (cube[5][2][0] == 'W' && cube[3][2][2] == 'R' &&  cube[2][2][0] == 'G') ||
+                (cube[5][2][0] == 'R' && cube[3][2][2] == 'G' &&  cube[2][2][0] == 'W')) {
             return "BottomBackLeftCorner";
         }
         else if ((cube[1][0][2] == 'R' && cube[4][0][0] == 'W' &&  cube[0][2][2] == 'G')  ||
@@ -137,16 +137,15 @@ public class F2L {
         }
     }
     private void solveFrontRightCorner() {
-        String orientationCase = getCornerROWOrientationCase();
-        System.out.println(orientationCase);
+        String orientationCase = getCornerGOWOrientationCase();
         switch (orientationCase) {
             case "correctlyOriented":
                 break;
             case "OWGOrientation":
-                executeRepeatingMoves("R T R` T`", 4);
+                executeRepeatingMoves("R T R` T`", 2);
                 break;
             case "WGOOrientation":
-                executeRepeatingMoves("R T R` T`", 2);
+                executeRepeatingMoves("R T R` T`", 4);
                 break;
             case "topWOGOrientation":
                 cubeMoves.performMoves(new String[]{"T", "R", "T`", "R`"});
@@ -163,15 +162,13 @@ public class F2L {
                 break;
         }
     }
-    private String getCornerROWOrientationCase() {
+    private String getCornerGOWOrientationCase() {
         // Logic to determine the orientation of the corner piece and return a case identifier
         if (cube[5][0][2] == 'W' && cube[1][2][2] == 'G') {
             return "correctlyOriented";
         } else if (cube[5][0][2] == 'G' && cube[1][2][2] == 'O') {
-            System.out.println("Here");
             return "OWGOrientation";
         } else if (cube[5][0][2] == 'O' && cube[1][2][2] == 'W') {
-            System.out.println("how");
             return "WGOOrientation";
         }else if (cube[1][0][2] == 'W' && cube[0][2][2] == 'G') {
             return "topWOGOrientation";
@@ -277,7 +274,6 @@ public class F2L {
     }
     private String getCornerBOWOrientationCase() {
         if (cube[5][2][2] == 'W' && cube[4][2][2] == 'O') {
-            System.out.println("inside");
             return "correctlyOriented";
         } else if (cube[5][2][2] == 'O' && cube[4][2][2] == 'B') {
             return "WBOOrientation";
