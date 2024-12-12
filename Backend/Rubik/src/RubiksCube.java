@@ -1,4 +1,5 @@
 public class RubiksCube {
+
     //making a 3D array for cube [FACE][3(GRID)][3(GRID)]
     private final char[][][] cube = new char[6][3][3];
     //array for cube face colors
