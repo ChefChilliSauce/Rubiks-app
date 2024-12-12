@@ -34,7 +34,16 @@ public class PLL {
             return "aligned";
         } else if (isDiagonal()) {
             return "DiagonalOrientation";
-        } else if (isAdjacent()) {
+        } else if (isAdjacentFront()) {
+            cubeMoves.performMoves(new String[]{"T"});
+            return "AdjacentOrientation";
+        } else if (isAdjacentLeft()) {
+            return "AdjacentOrientation";
+        } else if (isAdjacentBack()) {
+            cubeMoves.performMoves(new String[]{"T`"});
+            return "AdjacentOrientation";
+        } else if (isAdjacentRight()) {
+            cubeMoves.performMoves(new String[]{"T" , "T"});
             return "AdjacentOrientation";
         }
         return "misaligned";
@@ -45,22 +54,38 @@ public class PLL {
     }
 
     private boolean isDiagonal(){//checks for the PLL conditions where the correct corners are diagonally opposite to each other
-        return (cube[1][0][0] != cube[1][0][2]) && (cube[3][0][0] != cube[3][0][2]);
+        return ((cube[1][0][0] != cube[1][0][2]) && (cube[3][0][0] != cube[3][0][2])) && ((cube[2][0][0] != cube[2][0][2]) && (cube[4][0][0] != cube[4][0][2]));
     }
 
-    private boolean isAdjacent(){//checks for the PLL conditions where the correct corners are adjacent to each other
-        if((cube[2][0][0] == cube[2][0][2] ) && (cube[4][0][0] != cube[4][0][2])){
-            return true;
-        } else if ((cube[3][0][0] == cube[3][0][2] ) && (cube[1][0][0] != cube[1][0][2])) {
-            cubeMoves.performMoves(new String[]{"T`"});
-            return true;
-        } else if ((cube[4][0][0] == cube[4][0][2] ) && (cube[2][0][0] != cube[2][0][2])) {
-            cubeMoves.performMoves(new String[]{"T" , "T"});
-        } else if ((cube[1][0][0] == cube[1][0][2] ) && (cube[3][0][0] != cube[3][0][2])) {
-            cubeMoves.performMoves(new String[]{"T"});
-            return true;
-        }
-        return  false;
+//    private boolean isAdjacent(){
+//        System.out.println(cube[2][0][0]);
+//        System.out.println(cube[2][0][2]);
+//        System.out.println(cube[1][0][2]);
+//        System.out.println(cube[3][0][0]);
+//        if(cube[1][0][0] == cube[1][0][2] && cube[2][0][0] == cube[4][0][2]){
+//            //cubeMoves.performMoves(new String[]{"T"});
+//            return true;
+//        } else if ((cube[2][0][0] == cube[2][0][2] ) && (cube[1][0][2] == cube[3][0][0])) {
+//            return true;
+//        } else if ((cube[3][0][0] == cube[3][0][2] ) && (cube[2][0][2] == cube[4][0][0])) {
+//            //cubeMoves.performMoves(new String[]{"T`"});
+//        } else if ((cube[4][0][0] == cube[4][0][2] ) && (cube[1][0][0] == cube[3][0][2])) {
+//            //cubeMoves.performMoves(new String[]{"T" , "T"});
+//            return true;
+//        }
+//        return  false;
+//    }
+    private boolean isAdjacentFront(){
+        return(cube[1][0][0] == cube[1][0][2] && cube[2][0][0] == cube[4][0][2]);
+    }
+    private boolean isAdjacentLeft(){
+        return(cube[2][0][0] == cube[2][0][2] ) && (cube[1][0][2] == cube[3][0][0]);
+    }
+    private boolean isAdjacentBack(){
+        return(cube[3][0][0] == cube[3][0][2] ) && (cube[2][0][2] == cube[4][0][0]);
+    }
+    private boolean isAdjacentRight(){
+        return(cube[4][0][0] == cube[4][0][2] ) && (cube[1][0][0] == cube[3][0][2]);
     }
 
     private void alignCorners(){//method to align the corners of the top layer to correct position
