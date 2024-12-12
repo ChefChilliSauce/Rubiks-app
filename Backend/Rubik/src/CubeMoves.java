@@ -6,6 +6,8 @@ public class CubeMoves {
         this.cube = rubiksCube.getCube();
     }
 
+
+
     private void rotateFaceClockwise(int face){
         //Method to rotate face moving clockwise
         /*
