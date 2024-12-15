@@ -5,19 +5,21 @@ public class CrossSolver {
     final private CubeMoves cubeMoves;
     private final List<String> moveRecord;
 
-    public CrossSolver(RubiksCube rubiksCube, List<String> moveRecord) {             //getter method
+    public CrossSolver(RubiksCube rubiksCube, List<String> moveRecord) {             //getter methods
         this.cube = rubiksCube.getCube();
         this.cubeMoves = new CubeMoves(rubiksCube);
         this.moveRecord = moveRecord;
     }
+
     public void solveWhiteCross(){
-        solveGreenWhiteEdge();
+        solveGreenWhiteEdge();                                                                                                      //method to solve cross
         solveRedWhiteEdge();
         solveBlueWhiteEdge();
         solveOrangeWhiteEdge();
     }
+
     private  void solveGreenWhiteEdge(){
-        if(cube[1][2][1] == 'G' && cube[5][0][1] == 'W'){
+        if(cube[1][2][1] == 'G' && cube[5][0][1] == 'W'){                                                                       //method to solve green and white edge 1,2,1 and 5,0,1
             return;
         }
         String coordinates = getEdgeCoordinates('G');
@@ -124,8 +126,9 @@ public class CrossSolver {
                 break;
         }
     }
+
     private  void solveRedWhiteEdge() {
-        if (cube[2][2][1] == 'R' && cube[5][1][0] == 'W') {
+        if (cube[2][2][1] == 'R' && cube[5][1][0] == 'W') {                                                                                                                                 //method to solve red and white edge 2,2,1 and 5,1,0
             return;
         }
         String coordinates = getEdgeCoordinates('R');
@@ -224,8 +227,9 @@ public class CrossSolver {
                 break;
         }
     }
+
     private  void solveBlueWhiteEdge() {
-        if (cube[3][2][1] == 'B' && cube[5][2][1] == 'W') {
+        if (cube[3][2][1] == 'B' && cube[5][2][1] == 'W') {                                                                                                                                                     //method to solve blue and white edge 3,2,1 and 5,2,1
             return;
         }
         String coordinates = getEdgeCoordinates('B');
@@ -316,8 +320,9 @@ public class CrossSolver {
                 break;
         }
     }
+
     private  void solveOrangeWhiteEdge() {
-        if (cube[4][2][1] == 'O' && cube[5][1][2] == 'W') {
+        if (cube[4][2][1] == 'O' && cube[5][1][2] == 'W') {                                                                                                                                                     //method to solve green and white edge 4,2,1 and 5,1,2
             return;
         }
         String coordinates = getEdgeCoordinates('O');
@@ -400,8 +405,9 @@ public class CrossSolver {
                 break;
         }
     }
+
     private String getEdgeCoordinates(char color1){
-        char[] varArray = {'a' , 'b' , 'c' , 'd' , 'e' , 'f' , 'g' , 'h' , 'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' };
+        char[] varArray = {'a' , 'b' , 'c' , 'd' , 'e' , 'f' , 'g' , 'h' , 'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' };                                                                                                             //method to get coordinates of edge pieces
         for (char var : varArray) {
             int[][] edge = findEdgeCoordinates(var);
             int[] cord1 = edge[0];
@@ -414,8 +420,9 @@ public class CrossSolver {
         }
         return "none";
     }
+
     private int[][] findEdgeCoordinates(char var) {
-        return switch (var) {
+        return switch (var) {                                                                                                                                                                                                                   //method with all possible positions for edges
             case 'a' -> new int[][]{{0, 2, 1}, {1, 0, 1}};
             case 'b' -> new int[][]{{0, 1, 0}, {2, 0, 1}};
             case 'c' -> new int[][]{{0, 0, 1}, {3, 0, 1}};
@@ -435,8 +442,9 @@ public class CrossSolver {
             default -> new int[][]{{0,0,0} , {0,0,0}};
         };
     }
+
     private String findEdgeName(char var) {
-        return switch (var) {
+        return switch (var) {                                                                                                                                                                                                                               //method for getting the name of the edge where the piece is
             case 'a' -> "TopAndFront";
             case 'b' -> "TopAndLeft";
             case 'c' -> "TopAndBack";
@@ -456,8 +464,9 @@ public class CrossSolver {
             default -> "None";
         };
     }
+
     private void performAndLogMoves(String[] moves) {
-        cubeMoves.performMoves(moves);
-        moveRecord.addAll(List.of(moves)); // Log moves into the shared list
+        cubeMoves.performMoves(moves);                                                                                                                                                                                    //perform moves
+        moveRecord.addAll(List.of(moves));                                                                                                                                                                                  // Log moves into the Cross list
     }
 }
