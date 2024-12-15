@@ -1,16 +1,18 @@
+import java.util.List;
+
 public class F2L {
     final private char[][][] cube;
     final private CubeMoves cubeMoves;
+    private final List<String> moveRecord;
 
-    public F2L(RubiksCube rubiksCube) {             //getter method
-        // Directly assign the cube array to a member variable
-        this.cube = rubiksCube.getCube();
-        // Initialize CubeMoves with the RubiksCube instance
-        this.cubeMoves = new CubeMoves(rubiksCube);
+    public F2L(RubiksCube rubiksCube, List<String> moveRecord) {
+        this.cube = rubiksCube.getCube();                                                                                                                                                   // getter method Directly assign the cube array to a member variable
+        this.cubeMoves = new CubeMoves(rubiksCube);                                                                                                                           // Initialize CubeMoves with the RubiksCube instance
+        this.moveRecord = moveRecord;
     }
 
     public void solveSecondLayer() {
-        solveFrontLeftCorner();
+        solveFrontLeftCorner();                                                                                                                                                                       //Method to solve F2L
         solveFrontRightCorner();
         solveBackRightCorner();
         solveBackLeftCorner();
@@ -19,9 +21,10 @@ public class F2L {
         solveBackRightEdge();
         solveBackLeftEdge();
     }
+
     private void solveFrontLeftCorner() {
         String orientationCase = getCornerRGWOrientationCase();
-        switch (orientationCase) {
+        switch (orientationCase) {                                                                                                                                                                      //method to solve green white red corner
             case "correctlyOriented":
                 break;
             case "GRWOrientation":
@@ -31,7 +34,7 @@ public class F2L {
                 executeRepeatingMoves("L` T` L T", 2);
                 break;
             case "topWRGOrientation":
-                cubeMoves.performMoves(new String[]{"T`", "L`", "T", "L"});
+                performAndLogMoves(new String[]{"T`", "L`", "T", "L"});
                 break;
             case "topGWROrientation":
                 executeRepeatingMoves("L` T` L T", 1);
@@ -44,6 +47,7 @@ public class F2L {
                 break;
         }
     }
+
     private String getCornerRGWOrientationCase() {
         // Logic to determine the orientation of the corner piece and return a case identifier
         if (cube[5][0][0] == 'W' && cube[1][2][0] == 'G') {
@@ -61,6 +65,7 @@ public class F2L {
         }
         return "misalignedOrOther";
     }
+
     private void   handleMisalignedFrontLeftCorner() {
         String position = positionTopOrBottomC1();
         if (position.equals("BottomFrontRightCorner") || position.equals( "BottomBackLeftCorner") || position.equals( "BottomBackRightCorner")) {
@@ -108,17 +113,16 @@ public class F2L {
         }
     }
 
-
     private void movePieceToTopC1(String pos) {
         switch (pos) {
             case "BottomFrontRightCorner":
-                cubeMoves.performMoves(new String[]{"R", "T", "R`"});
+                performAndLogMoves(new String[]{"R", "T", "R`"});
                 break;
             case "BottomBackRightCorner":
-                cubeMoves.performMoves(new String[]{"Ba", "T", "T" , "Ba`"});
+                performAndLogMoves(new String[]{"Ba", "T", "T" , "Ba`"});
                 break;
             case "BottomBackLeftCorner":
-                cubeMoves.performMoves(new String[]{"Ba`", "T`", "Ba"});
+                performAndLogMoves(new String[]{"Ba`", "T`", "Ba"});
                 break;
         }
     }
@@ -126,18 +130,19 @@ public class F2L {
     private void alignTopLayerC1(String pos) {
         switch (pos) {
             case "TopFrontRightCorner":
-                cubeMoves.performMoves(new String[]{"T"});
+                performAndLogMoves(new String[]{"T"});
                 break;
             case "TopBackRightCorner":
-                cubeMoves.performMoves(new String[]{"T", "T"});
+                performAndLogMoves(new String[]{"T", "T"});
                 break;
             case "TopBackLeftCorner":
-                cubeMoves.performMoves(new String[]{"T`"});
+                performAndLogMoves(new String[]{"T`"});
                 break;
         }
     }
+
     private void solveFrontRightCorner() {
-        String orientationCase = getCornerGOWOrientationCase();
+        String orientationCase = getCornerGOWOrientationCase();                                                                                                                                                                         //method to solve green white orange corner
         switch (orientationCase) {
             case "correctlyOriented":
                 break;
@@ -148,7 +153,7 @@ public class F2L {
                 executeRepeatingMoves("R T R` T`", 4);
                 break;
             case "topWOGOrientation":
-                cubeMoves.performMoves(new String[]{"T", "R", "T`", "R`"});
+                performAndLogMoves(new String[]{"T", "R", "T`", "R`"});
                 break;
             case "topGWOrientation":
                 executeRepeatingMoves("R T R` T`", 1);
@@ -162,6 +167,7 @@ public class F2L {
                 break;
         }
     }
+
     private String getCornerGOWOrientationCase() {
         // Logic to determine the orientation of the corner piece and return a case identifier
         if (cube[5][0][2] == 'W' && cube[1][2][2] == 'G') {
@@ -179,6 +185,7 @@ public class F2L {
         }
         return "misalignedOrOther";
     }
+
     private void   handleMisalignedFrontRightCorner() {
         String position = positionTopOrBottomC2();
         if (position.equals( "BottomBackLeftCorner") || position.equals( "BottomBackRightCorner")) {
@@ -221,14 +228,13 @@ public class F2L {
         }
     }
 
-
     private void movePieceToTopC2(String pos) {
         switch (pos) {
             case "BottomBackRightCorner":
-                cubeMoves.performMoves(new String[]{"Ba", "T", "Ba`"});
+                performAndLogMoves(new String[]{"Ba", "T", "Ba`"});
                 break;
             case "BottomBackLeftCorner":
-                cubeMoves.performMoves(new String[]{"Ba`", "T", "T" , "Ba"});
+                performAndLogMoves(new String[]{"Ba`", "T", "T" , "Ba"});
                 break;
         }
     }
@@ -236,18 +242,19 @@ public class F2L {
     private void alignTopLayerC2(String pos) {
         switch (pos) {
             case "TopFrontLeftCorner":
-                cubeMoves.performMoves(new String[]{"T`"});
+                performAndLogMoves(new String[]{"T`"});
                 break;
             case "TopBackRightCorner":
-                cubeMoves.performMoves(new String[]{"T"});
+                performAndLogMoves(new String[]{"T"});
                 break;
             case "TopBackLeftCorner":
-                cubeMoves.performMoves(new String[]{"T", "T"});
+                performAndLogMoves(new String[]{"T", "T"});
                 break;
         }
     }
+
     private void solveBackRightCorner() {
-        String orientationCase = getCornerBOWOrientationCase();
+        String orientationCase = getCornerBOWOrientationCase();                                                                                                                                                                                 //method to solve blue white orange corner
         switch (orientationCase) {
             case "correctlyOriented":
                 break;
@@ -258,7 +265,7 @@ public class F2L {
                 executeRepeatingMoves("Ba T Ba` T`", 4);
                 break;
             case "topWOBOrientation":
-                cubeMoves.performMoves(new String[]{"Ba", "T", "Ba`", "T`"});
+                performAndLogMoves(new String[]{"Ba", "T", "Ba`", "T`"});
                 break;
             case "topBWOrientation":
                 executeRepeatingMoves("T Ba T` Ba`", 1);
@@ -272,6 +279,7 @@ public class F2L {
                 break;
         }
     }
+
     private String getCornerBOWOrientationCase() {
         if (cube[5][2][2] == 'W' && cube[4][2][2] == 'O') {
             return "correctlyOriented";
@@ -288,10 +296,11 @@ public class F2L {
         }
         return "misalignedOrOther";
     }
+
     private void   handleMisalignedBackRightCorner() {
         String position = positionTopOrBottomC3();
         if (position.equals( "BottomBackLeftCorner")) {
-            cubeMoves.performMoves(new String[]{"Ba`", "T", "T", "Ba"});
+            performAndLogMoves(new String[]{"Ba`", "T", "T", "Ba"});
             solveBackRightCorner(); // Recursively call with piece in the top corner
         } else if (position.equals("TopFrontLeftCorner") || position.equals( "TopBackLeftCorner") || position.equals( "TopFrontRightCorner")) {
             alignTopLayerC3(position);
@@ -328,18 +337,19 @@ public class F2L {
     private void alignTopLayerC3(String pos) {
         switch (pos) {
             case "TopFrontLeftCorner":
-                cubeMoves.performMoves(new String[]{"T", "T"});
+                performAndLogMoves(new String[]{"T", "T"});
                 break;
             case "TopFrontRightCorner":
-                cubeMoves.performMoves(new String[]{"T`"});
+                performAndLogMoves(new String[]{"T`"});
                 break;
             case "TopBackLeftCorner":
-                cubeMoves.performMoves(new String[]{"T"});
+                performAndLogMoves(new String[]{"T"});
                 break;
         }
     }
+
     private void solveBackLeftCorner() {
-        String orientationCase = getCornerBRWOrientationCase();
+        String orientationCase = getCornerBRWOrientationCase();                                                                                                                                                                     //method to solve blue white red corner
         switch (orientationCase) {
             case "correctlyOriented":
                 break;
@@ -350,7 +360,7 @@ public class F2L {
                 executeRepeatingMoves("Ba` T` Ba T", 2);
                 break;
             case "topBWROrientation":
-                cubeMoves.performMoves(new String[]{"T`", "Ba`", "T", "Ba"});
+                performAndLogMoves(new String[]{"T`", "Ba`", "T", "Ba"});
                 break;
             case "topRBWOrientation":
                 executeRepeatingMoves("Ba` T` Ba T", 3);
@@ -364,6 +374,7 @@ public class F2L {
                 break;
         }
     }
+
     private String getCornerBRWOrientationCase() {
         // Logic to determine the orientation of the corner piece and return a case identifier
         if (cube[5][2][0] == 'W' && cube[2][2][0] == 'R') {
@@ -381,6 +392,7 @@ public class F2L {
         }
         return "misalignedOrOther";
     }
+
     private void   handleMisalignedBackLeftCorner() {
         String position = positionTopOrBottomC4();
         if(position.equals("TopFrontRightCorner") || position.equals( "TopFrontLeftCorner") || position.equals( "TopBackRightCorner")) {
@@ -410,66 +422,70 @@ public class F2L {
         }
     }
 
-
     private void alignTopLayerC4(String pos) {
         switch (pos) {
             case "TopFrontRightCorner":
-                cubeMoves.performMoves(new String[]{"T", "T"});
+                performAndLogMoves(new String[]{"T", "T"});
                 break;
             case "TopBackRightCorner":
-                cubeMoves.performMoves(new String[]{"T`"});
+                performAndLogMoves(new String[]{"T`"});
                 break;
             case "TopFrontLeftCorner":
-                cubeMoves.performMoves(new String[]{"T"});
+                performAndLogMoves(new String[]{"T"});
                 break;
         }
     }
+
     private void executeRepeatingMoves(String moves, int times) {
         for (int i = 0; i < times; i++) {
             String[] movesArray = moves.trim().split("\\s+");
-            cubeMoves.performMoves(movesArray);
+            performAndLogMoves(movesArray);
         }
     }
+
     private void solveFrontLeftEdge() {
-        String orientationCase = getCornerGROrientationCase();
+        String orientationCase = getCornerGROrientationCase();                                                                                                                                      //method to solve green red edge
         switch (orientationCase) {
             case ("correctOrientation"):
                 break;
             case("FrontRGOrientation"):
-                cubeMoves.performMoves(new String[]{"T", "T"});
-                cubeMoves.performAlgoF2L(new String[]{"RGAlgo"});
+                String[] frgSequence = {"T", "T" , "F" , "T" , "F`" , "T`" , "L`" , "T`" , "L"};
+                performAndLogMoves(frgSequence);
                 break;
             case ("LeftRGOrientation"):
-                cubeMoves.performMoves(new String[]{"T"});
-                cubeMoves.performAlgoF2L(new String[]{"RGAlgo"});
+                String[] lrgSequence = {"T" , "F" , "T" , "F`" , "T`" , "L`" , "T`" , "L"};
+                performAndLogMoves(lrgSequence);
                 break;
             case("BackRGOrientation"):
-                cubeMoves.performAlgoF2L(new String[]{"RGAlgo"});
+                String[] brgSequence = {"F" , "T" , "F`" , "T`" , "L`" , "T`" , "L"};
+                performAndLogMoves(brgSequence);
                 break;
             case ("RightRGOrientation"):
-                cubeMoves.performMoves(new String[]{"T`"});
-                cubeMoves.performAlgoF2L(new String[]{"RGAlgo"});
+                String[] rrgSequence = {"T`" , "F" , "T" , "F`" , "T`" , "L`" , "T`" , "L"};
+                performAndLogMoves(rrgSequence);
                 break;
             case("FrontGROrientation"):
-                cubeMoves.performMoves(new String[]{"T`"});
-                cubeMoves.performAlgoF2L(new String[]{"GRAlgo"});
+                String[] fgrSequence = {"T`" , "L`" , "T`" , "L" , "T" , "F" , "T" , "F`"};
+                performAndLogMoves(fgrSequence);
                 break;
             case ("LeftGROrientation"):
-                cubeMoves.performMoves(new String[]{"T", "T"});
-                cubeMoves.performAlgoF2L(new String[]{"GRAlgo"});
+                String[] lgrSequence = {"T", "T" , "L`" , "T`" , "L" , "T" , "F" , "T" , "F`"};
+                performAndLogMoves(lgrSequence);
                 break;
             case("BackGROrientation"):
-                cubeMoves.performMoves(new String[]{"T"});
-                cubeMoves.performAlgoF2L(new String[]{"GRAlgo"});
+                String[] bgrSequence = {"T" , "L`" , "T`" , "L" , "T" , "F" , "T" , "F`"};
+                performAndLogMoves(bgrSequence);
                 break;
             case ("RightGROrientation"):
-                cubeMoves.performAlgoF2L(new String[]{"GRAlgo"});
+                String[] rgrSequence = {"L`" , "T`" , "L" , "T" , "F" , "T" , "F`"};
+                performAndLogMoves(rgrSequence);
                 break;
             default:
                 handleMisalignedFrontLeft();
                 break;
         }
     }
+
     private String getCornerGROrientationCase() {
         if(cube[1][1][0] == 'G' && cube[2][1][2] == 'R'){
             return "correctOrientation";
@@ -500,64 +516,73 @@ public class F2L {
         }
         return "misaligned";
     }
+
     private void   handleMisalignedFrontLeft() {
         if(cube[1][1][0] == 'R' && cube[2][1][2] == 'G'){
-            cubeMoves.performAlgoF2L(new String[]{"E1Algo"});
+            String[] mis1Sequence = {"T`" , "L`" , "T" , "L" , "T" , "F" , "T`" , "F`"};
+            performAndLogMoves(mis1Sequence);
             solveFrontLeftEdge();
         }
         else if ((cube[1][1][2] == 'R' && cube[4][1][0] == 'G') || (cube[1][1][2] == 'G' && cube[4][1][0] == 'R')){
-            cubeMoves.performAlgoF2L(new String[]{"E2Algo"});
+            String[] mis2Sequence = {"T" , "R" , "T`" , "R`" , "T`" ,"F`" , "T" , "F"};
+            performAndLogMoves(mis2Sequence);
             solveFrontLeftEdge();
         }
         else if ((cube[3][1][0] == 'R' && cube[4][1][2] == 'G') ||  (cube[3][1][0] == 'G' && cube[4][1][2] == 'R')){
-            cubeMoves.performAlgoF2L(new String[]{"E3Algo"});
+            String[] mis3Sequence = {"T`" , "R`" , "T" ,"R" , "T" , "Ba" , "T`" , "Ba`"};
+            performAndLogMoves(mis3Sequence);
             solveFrontLeftEdge();
         }
         else if ((cube[3][1][2] == 'R' && cube[2][1][0] == 'G') ||  (cube[3][1][2] == 'G' && cube[2][1][0] == 'R')){
-            cubeMoves.performAlgoF2L(new String[]{"E4Algo"});
+            String[] mis4Sequence = {"T" , "L" , "T`" , "L`" , "T`" , "Ba`" , "T" , "Ba"};
+            performAndLogMoves(mis4Sequence);
             solveFrontLeftEdge();
         }
     }
+
     private void solveFrontRightEdge() {
-        String orientationCase = getCornerGOOrientationCase();
+        String orientationCase = getCornerGOOrientationCase();                                                                                                              //method to solve green orange edge
         switch (orientationCase) {
             case ("correctOrientation"):
                 break;
             case("FrontOGOrientation"):
-                cubeMoves.performMoves(new String[]{"T", "T"});
-                cubeMoves.performAlgoF2L(new String[]{"OGAlgo"});
+                String[] fogSequence = {"T", "T" , "F`" , "T`" , "F" , "T" , "R" , "T" , "R`"};
+                performAndLogMoves(fogSequence);
                 break;
             case ("LeftOGOrientation"):
-                cubeMoves.performMoves(new String[]{"T"});
-                cubeMoves.performAlgoF2L(new String[]{"OGAlgo"});
+                String[] logSequence = {"T" , "F`" , "T`" , "F" , "T" , "R" , "T" , "R`"};
+                performAndLogMoves(logSequence);
                 break;
             case("BackOGOrientation"):
-                cubeMoves.performAlgoF2L(new String[]{"OGAlgo"});
+                String[] bogSequence = {"F`" , "T`" , "F" , "T" , "R" , "T" , "R`"};
+                performAndLogMoves(bogSequence);
                 break;
             case ("RightOGOrientation"):
-                cubeMoves.performMoves(new String[]{"T`"});
-                cubeMoves.performAlgoF2L(new String[]{"OGAlgo"});
+                String[] rogSequence = {"T`" , "F`" , "T`" , "F" , "T" , "R" , "T" , "R`"};
+                performAndLogMoves(rogSequence);
                 break;
             case("FrontGOOrientation"):
-                cubeMoves.performMoves(new String[]{"T"});
-                cubeMoves.performAlgoF2L(new String[]{"GOAlgo"});
+                String[] fgoSequence = {"T" , "R" , "T" , "R`" , "T`" , "F`" , "T`" , "F"};
+                performAndLogMoves(fgoSequence);
                 break;
             case ("LeftGOOrientation"):
-                cubeMoves.performAlgoF2L(new String[]{"GOAlgo"});
+                String[] lgoSequence = {"R" , "T" , "R`" , "T`" , "F`" , "T`" , "F"};
+                performAndLogMoves(lgoSequence);
                 break;
             case("BackGOOrientation"):
-                cubeMoves.performMoves(new String[]{"T`"});
-                cubeMoves.performAlgoF2L(new String[]{"GOAlgo"});
+                String[] bgoSequence = {"T`" , "R" , "T" , "R`" , "T`" , "F`" , "T`" , "F"};
+                performAndLogMoves(bgoSequence);
                 break;
             case ("RightGOOrientation"):
-                cubeMoves.performMoves(new String[]{"T", "T"});
-                cubeMoves.performAlgoF2L(new String[]{"GOAlgo"});
+                String[] rgoSequence = {"T", "T" , "R" , "T" , "R`" , "T`" , "F`" , "T`" , "F"};
+                performAndLogMoves(rgoSequence);
                 break;
             default:
                 handleMisalignedFrontRight();
                 break;
         }
     }
+
     private String getCornerGOOrientationCase() {
         if(cube[1][1][2] == 'G' && cube[4][1][0] == 'O'){
             return "correctOrientation";
@@ -588,60 +613,68 @@ public class F2L {
         }
         return "misaligned";
     }
+
     private void   handleMisalignedFrontRight() {
         if (cube[1][1][2] == 'O' && cube[4][1][0] == 'G'){
-            cubeMoves.performAlgoF2L(new String[]{"E2Algo"});
+            String[] mis1Sequence = {"T" , "R" , "T`" , "R`" , "T`" ,"F`" , "T" , "F"};
+            performAndLogMoves(mis1Sequence);
             solveFrontRightEdge();
         }
         else if ((cube[3][1][0] == 'O' && cube[4][1][2] == 'G') ||  (cube[3][1][0] == 'G' && cube[4][1][2] == 'O')){
-            cubeMoves.performAlgoF2L(new String[]{"E3Algo"});
+            String[] mis2Sequence = {"T`" , "R`" , "T" ,"R" , "T" , "Ba" , "T`" , "Ba`"};
+            performAndLogMoves(mis2Sequence);
             solveFrontRightEdge();
         }
         else if ((cube[3][1][2] == 'O' && cube[2][1][0] == 'G') ||  (cube[3][1][2] == 'G' && cube[2][1][0] == 'O')){
-            cubeMoves.performAlgoF2L(new String[]{"E4Algo"});
+            String[] mis3Sequence = {"T" , "L" , "T`" , "L`" , "T`" , "Ba`" , "T" , "Ba"};
+            performAndLogMoves(mis3Sequence);
             solveFrontRightEdge();
         }
     }
+
     private void solveBackRightEdge() {
-        String orientationCase = getCornerBOOrientationCase();
+        String orientationCase = getCornerBOOrientationCase();                                                                                                                                      //method to solve blue orange edge
         switch (orientationCase) {
             case ("correctOrientation"):
                 break;
             case("FrontOBOrientation"):
-                cubeMoves.performAlgoF2L(new String[]{"OBAlgo"});
+                String[] fobSequence = {"Ba" , "T" , "Ba`" , "T`" , "R`" , "T`" , "R"};
+                performAndLogMoves(fobSequence);
                 break;
             case ("LeftOBOrientation"):
-                cubeMoves.performMoves(new String[]{"T`"});
-                cubeMoves.performAlgoF2L(new String[]{"OBAlgo"});
+                String[] lobSequence = {"T`" , "Ba" , "T" , "Ba`" , "T`" , "R`" , "T`" , "R"};
+                performAndLogMoves(lobSequence);
                 break;
             case("BackOBOrientation"):
-                cubeMoves.performMoves(new String[]{"T", "T"});
-                cubeMoves.performAlgoF2L(new String[]{"OBAlgo"});
+                String[] bobSequence = {"T", "T" , "Ba" , "T" , "Ba`" , "T`" , "R`" , "T`" , "R"};
+                performAndLogMoves(bobSequence);
                 break;
             case ("RightOBOrientation"):
-                cubeMoves.performMoves(new String[]{"T"});
-                cubeMoves.performAlgoF2L(new String[]{"OBAlgo"});
+                String[] robSequence = {"T" , "Ba" , "T" , "Ba`" , "T`" , "R`" , "T`" , "R"};
+                performAndLogMoves(robSequence);
                 break;
             case("FrontBOOrientation"):
-                cubeMoves.performMoves(new String[]{"T"});
-                cubeMoves.performAlgoF2L(new String[]{"BOAlgo"});
+                String[] fboSequence = {"T" , "R`" , "T`" , "R" , "T" , "Ba" , "T" , "Ba`"};
+                performAndLogMoves(fboSequence);
                 break;
             case ("LeftBOOrientation"):
-                cubeMoves.performAlgoF2L(new String[]{"BOAlgo"});
+                String[] lboSequence = {"R`" , "T`" , "R" , "T" , "Ba" , "T" , "Ba`"};
+                performAndLogMoves(lboSequence);
                 break;
             case("BackBOOrientation"):
-                cubeMoves.performMoves(new String[]{"T`"});
-                cubeMoves.performAlgoF2L(new String[]{"BOAlgo"});
+                String[] bboSequence = {"T`" , "R`" , "T`" , "R" , "T" , "Ba" , "T" , "Ba`"};
+                performAndLogMoves(bboSequence);
                 break;
             case ("RightBOOrientation"):
-                cubeMoves.performMoves(new String[]{"T", "T"});
-                cubeMoves.performAlgoF2L(new String[]{"BOAlgo"});
+                String[] rboSequence = {"T", "T" , "R`" , "T`" , "R" , "T" , "Ba" , "T" , "Ba`"};
+                performAndLogMoves(rboSequence);
                 break;
             default:
                 handleMisalignedBackRight();
                 break;
         }
     }
+
     private String getCornerBOOrientationCase() {
         if(cube[3][1][0] == 'B' && cube[4][1][2] == 'O'){
             return "correctOrientation";
@@ -672,56 +705,63 @@ public class F2L {
         }
         return "misaligned";
     }
+
     private void   handleMisalignedBackRight() {
         if (cube[3][1][0] == 'O' && cube[4][1][2] == 'B'){
-            cubeMoves.performAlgoF2L(new String[]{"E3Algo"});
+            String[] mis1Sequence = {"T`" , "R`" , "T" ,"R" , "T" , "Ba" , "T`" , "Ba`"};
+            performAndLogMoves(mis1Sequence);
             solveBackRightEdge();
         }
         else if ((cube[3][1][2] == 'O' && cube[2][1][0] == 'B') ||  (cube[3][1][2] == 'B' && cube[2][1][0] == 'O')){
-            cubeMoves.performAlgoF2L(new String[]{"E4Algo"});
+            String[] mis2Sequence = {"T" , "L" , "T`" , "L`" , "T`" , "Ba`" , "T" , "Ba"};
+            performAndLogMoves(mis2Sequence);
             solveBackRightEdge();
         }
     }
+
     private void solveBackLeftEdge() {
-        String orientationCase = getCornerBROrientationCase();
+        String orientationCase = getCornerBROrientationCase();                                                                                                                                                              //method to solve blue red edge
         switch (orientationCase) {
             case ("correctOrientation"):
                 break;
             case("FrontRBOrientation"):
-                cubeMoves.performAlgoF2L(new String[]{"RBAlgo"});
+                String[] frbSequence = {"Ba`" , "T`" , "Ba" , "T" , "L" , "T" , "L`"};
+                performAndLogMoves(frbSequence);
                 break;
             case ("LeftRBOrientation"):
-                cubeMoves.performMoves(new String[]{"T`"});
-                cubeMoves.performAlgoF2L(new String[]{"RBAlgo"});
+                String[] lrbSequence = {"T`" , "Ba`" , "T`" , "Ba" , "T" , "L" , "T" , "L`"};
+                performAndLogMoves(lrbSequence);
                 break;
             case("BackRBOrientation"):
-                cubeMoves.performMoves(new String[]{"T", "T"});
-                cubeMoves.performAlgoF2L(new String[]{"RBAlgo"});
+                String[] brbSequence = {"T", "T" , "Ba`" , "T`" , "Ba" , "T" , "L" , "T" , "L`"};
+                performAndLogMoves(brbSequence);
                 break;
             case ("RightRBOrientation"):
-                cubeMoves.performMoves(new String[]{"T"});
-                cubeMoves.performAlgoF2L(new String[]{"RBAlgo"});
+                String[] rrbSequence = {"T" , "Ba`" , "T`" , "Ba" , "T" , "L" , "T" , "L`"};
+                performAndLogMoves(rrbSequence);
                 break;
             case("FrontBROrientation"):
-                cubeMoves.performMoves(new String[]{"T`"});
-                cubeMoves.performAlgoF2L(new String[]{"BRAlgo"});
+                String[] fbrSequence = {"T`" , "L" , "T`" , "L`" , "T`" , "Ba`" , "T" , "Ba"};
+                performAndLogMoves(fbrSequence);
                 break;
             case ("LeftBROrientation"):
-                cubeMoves.performMoves(new String[]{"T" , "T"});
-                cubeMoves.performAlgoF2L(new String[]{"BRAlgo"});
+                String[] lbrSequence = {"T" , "T" , "L" , "T`" , "L`" , "T`" , "Ba`" , "T" , "Ba"};
+                performAndLogMoves(lbrSequence);
                 break;
             case("BackBROrientation"):
-                cubeMoves.performMoves(new String[]{"T"});
-                cubeMoves.performAlgoF2L(new String[]{"BRAlgo"});
+                String[] bbrSequence = {"T" , "L" , "T`" , "L`" , "T`" , "Ba`" , "T" , "Ba"};
+                performAndLogMoves(bbrSequence);
                 break;
             case ("RightBROrientation"):
-                cubeMoves.performAlgoF2L(new String[]{"BRAlgo"});
+                String[] rbrSequence = {"L" , "T`" , "L`" , "T`" , "Ba`" , "T" , "Ba"};
+                performAndLogMoves(rbrSequence);
                 break;
             default:
                 handleMisalignedBackLeft();
                 break;
         }
     }
+
     private String getCornerBROrientationCase() {
         if(cube[3][1][2] == 'B' && cube[2][1][0] == 'R'){
             return "correctOrientation";
@@ -752,10 +792,17 @@ public class F2L {
         }
         return "misaligned";
     }
+
     private void   handleMisalignedBackLeft() {
         if (cube[3][1][2] == 'R' && cube[2][1][0] == 'B'){
-            cubeMoves.performAlgoF2L(new String[]{"E4Algo"});
+            String[] mis1Sequence = {"T" , "L" , "T`" , "L`" , "T`" , "Ba`" , "T" , "Ba"};
+            performAndLogMoves(mis1Sequence);
             solveBackLeftEdge();
         }
+    }
+
+    private void performAndLogMoves(String[] moves) {
+        cubeMoves.performMoves(moves);                                                                                                                                                                                                            //perform moves
+        moveRecord.addAll(List.of(moves));                                                                                                                                                                                                          // Log moves into the F2L list
     }
 }
