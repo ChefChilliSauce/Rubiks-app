@@ -1,29 +1,25 @@
 public class RubiksCube {
 
-    //making a 3D array for cube [FACE][3(GRID)][3(GRID)]
-    private final char[][][] cube = new char[6][3][3];
-    //array for cube face colors
-    private static final char [] colors = {'Y', 'G', 'R', 'B', 'O', 'W'};
-    //array for face names
-    private static final String [] faceNames = {"Top", "Front", "Left", "Back", "Right", "Bottom"};
-    //face constants
-    public static final int TOP = 0;
+    private final char[][][] cube = new char[6][3][3];                                                                                                  //making a 3D array for cube [FACE][3(GRID)][3(GRID)]
+    private static final char [] colors = {'Y', 'G', 'R', 'B', 'O', 'W'};                                                                              //array for cube face colors
+    private static final String [] faceNames = {"Top", "Front", "Left", "Back", "Right", "Bottom"};                     //array for face names
+    public static final int TOP = 0;                                                                                                                             //face constants
     public static final int FRONT = 1;
     public static final int LEFT = 2;
     public static final int BACK = 3;
     public static final int RIGHT = 4;
     public static final int BOTTOM = 5;
 
-    public char[][][] getCube() {//getter method
-        return cube;
+    public char[][][] getCube() {
+        return cube;                                                                                                                                                           // Return the cube state
     }
+
     public RubiksCube (){
-        //method call to initiate the cube
-        initiateCube();
+        initiateCube();                                                                                                                                                       //method call to initiate the cube
     }
-    private void initiateCube(){
-        //cube initiation eg:cube[0][0][0] = 'Y'
-        for(int face = 0; face < 6; face++){
+
+    public void initiateCube(){
+        for(int face = 0; face < 6; face++){                                                                                                                       //cube initiation eg:cube[0][0][0] = 'Y'
             for(int i = 0; i <3; i++){
                 for(int j = 0; j <3; j++){
                     cube[face][i][j] = colors[face];
@@ -31,8 +27,9 @@ public class RubiksCube {
             }
         }
     }
+
     public void DisplayCube(){
-        for(int face = 0; face < 6; face++){
+        for(int face = 0; face < 6; face++){                                                                                                                        //Method to display cube as output
             System.out.println("Face: " + faceNames[face]);
             for(int i = 0; i < 3; i++){
                 for(int j = 0; j < 3; j++){
