@@ -1,35 +1,43 @@
-public class OLL{
-final private char[][][] cube;
-final private CubeMoves cubeMoves;
+import java.util.List;
 
-    public OLL(RubiksCube rubiksCube) {
-        // Directly assign the cube array to a member variable
-        this.cube = rubiksCube.getCube();
-        // Initialize CubeMoves with the RubiksCube instance
+public class OLL{
+    final private char[][][] cube;
+    final private CubeMoves cubeMoves;
+    private final List<String> moveRecord;
+
+    public OLL(RubiksCube rubiksCube, List<String> moveRecord) {
+        this.cube = rubiksCube.getCube();                                                                                                                                // getter method
         this.cubeMoves = new CubeMoves(rubiksCube);
+        this.moveRecord = moveRecord;
     }
+
     public void solveOLL(){
-        solveTopCross();
+        solveTopCross();                                                                                                                                                            //Method to solve OLL
         solveOLLAlgo();
     }
+
     private void solveTopCross(){
-        String orientationCase = getTopCrossOrientation();
+        String orientationCase = getTopCrossOrientation();                                                                                                      //method to solve top cross
         switch(orientationCase){
             case "orientationCross":
                 break;
             case "orientationCentreDot":
-                cubeMoves.performAlgoOLL(new String[]{"algoDotCross"});
+                String[] dotSequence = {"F" , "R" , "T" , "R`" , "T`" , "F`" , "f" , "R" , "T" , "R`" , "T`" , "f`"};
+                performAndLogMoves(dotSequence);
                 break;
             case "orientationI":
-                cubeMoves.performAlgoOLL(new String[]{"algoICross"});
+                String[] iSequence = {"F" , "R" , "T" , "R`" , "T`" , "F`"};
+                performAndLogMoves(iSequence);
                 break;
             case "orientationL":
-                cubeMoves.performAlgoOLL(new String[]{"algoLCross"});
+                String[] lSequence = {"f" , "R" , "T" , "R`" , "T`" , "f`"};
+                performAndLogMoves(lSequence);
                 break;
         }
     }
+
     private String getTopCrossOrientation(){
-        if((cube[0][1][1] == 'Y') && (cube[0][0][1] == 'Y') && (cube[0][1][0] == 'Y') && (cube[0][1][2] == 'Y') && (cube[0][2][1] == 'Y')){
+        if((cube[0][1][1] == 'Y') && (cube[0][0][1] == 'Y') && (cube[0][1][0] == 'Y') && (cube[0][1][2] == 'Y') && (cube[0][2][1] == 'Y')){                                     //method to understand the top face orientation for cross
             return "orientationCross";
         }
        else if((cube[0][1][1] == 'Y') && (cube[0][0][1] != 'Y') && (cube[0][1][0] != 'Y') && (cube[0][1][2] != 'Y') && (cube[0][2][1] != 'Y')){
@@ -39,56 +47,65 @@ final private CubeMoves cubeMoves;
             return "orientationI";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] == 'Y') && (cube[0][1][0] != 'Y') && (cube[0][1][2] != 'Y') && (cube[0][2][1] == 'Y')){
-            cubeMoves.performMoves(new String[]{"T"});
+            performAndLogMoves(new String[]{"T"});
             return "orientationI";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] != 'Y') && (cube[0][1][0] != 'Y') && (cube[0][1][2] == 'Y') && (cube[0][2][1] == 'Y')){
             return "orientationL";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] != 'Y') && (cube[0][1][0] == 'Y') && (cube[0][1][2] != 'Y') && (cube[0][2][1] == 'Y')){
-            cubeMoves.performMoves(new  String[]{"T`"});
+            performAndLogMoves(new  String[]{"T`"});
             return "orientationL";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] == 'Y') && (cube[0][1][0] == 'Y') && (cube[0][1][2] != 'Y') && (cube[0][2][1] != 'Y')){
-            cubeMoves.performMoves(new  String[]{"T" , "T"});
+            performAndLogMoves(new  String[]{"T" , "T"});
             return "orientationL";
         }
         else if((cube[0][1][1] == 'Y') && (cube[0][0][1] == 'Y') && (cube[0][1][0] != 'Y') && (cube[0][1][2] == 'Y') && (cube[0][2][1] != 'Y')){
-            cubeMoves.performMoves(new  String[]{"T"});
+            performAndLogMoves(new  String[]{"T"});
             return "orientationL";
         }
         return"misaligned";
     }
+
     private void solveOLLAlgo(){
-        String orientationCase = getTopOrientation();
+        String orientationCase = getTopOrientation();                                                                                                                                                       //method to solve yellow face
         switch(orientationCase){
             case "orientationOLL":
                 break;
             case "orientationAntiSune":
-                cubeMoves.performAlgoOLL(new String[]{"algoAntiSune"});
+                String[] antiSuneSequence = {"R" , "T" , "T" , "R`" , "T`" , "R" , "T`" , "R`"};
+                performAndLogMoves(antiSuneSequence);
                 break;
             case "orientationH":
-                cubeMoves.performAlgoOLL(new String[]{"algoH"});
+                String[] hSequence = {"R" , "T" , "R`" , "T" , "R" ,"T`" , "R`" , "T" , "R" , "T" , "T" , "R`"};
+                performAndLogMoves(hSequence);
                 break;
             case "orientationLSeg":
-                cubeMoves.performAlgoOLL(new String[]{"algoL"});
+                String[] lSequence = {"F" , "R`" , "F`" , "r" , "T" , "R" , "T`" , "r`"};
+                performAndLogMoves(lSequence);
                 break;
             case "orientationPi":
-                cubeMoves.performAlgoOLL(new String[]{"algoPi"});
+                String[] piSequence = {"R" , "T" , "T" , "R" , "R" , "T`" ,"R" , "R" , "T`" , "R" , "R" , "T" , "T" , "R"};
+                performAndLogMoves(piSequence);
                 break;
             case "orientationSune":
-                cubeMoves.performAlgoOLL(new String[]{"algoSune"});
+                String[] suneSequence = {"R" , "T" , "R`" , "T" , "R" , "T" , "T" , "R`"};
+                performAndLogMoves(suneSequence);
                 break;
             case "orientationT":
-                cubeMoves.performAlgoOLL(new String[]{"algoT"});
+                String[] tSequence = {"r" , "T" , "R`" , "T`" , "r`" , "F" , "R" ,"F`"};
+                performAndLogMoves(tSequence);
                 break;
             case "orientationU":
-                cubeMoves.performAlgoOLL(new String[]{"algoU"});
+                String[] uSequence = {"R" , "R" , "B" , "R`" , "T" , "T" , "R" , "B`" , "R`" , "T" , "T" , "R`"};
+                performAndLogMoves(uSequence);
                 break;
         }
     }
+
     private String getTopOrientation(){
-        if(isOLL()){
+        if(isOLL()){                                                                                                                                                                                                                        //method to get top orientation
             return "orientationOLL";
         }
        else if(isAntiSune()){
@@ -114,125 +131,138 @@ final private CubeMoves cubeMoves;
         }
         return "misaligned";
     }
+
     private boolean isOLL(){
         return cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][1][0] == 'Y' && cube[0][1][1] == 'Y' && cube[0][1][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y';
     }
+
     private boolean isAntiSune(){
         if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][0] == 'Y'){
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[3][0][0] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][0] == 'Y'){
-            cubeMoves.performMoves(new String[]{"T`"});
+            performAndLogMoves(new String[]{"T`"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' &&  cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[4][0][0] == 'Y' && cube[3][0][0] == 'Y' && cube[2][0][0] == 'Y'){
-            cubeMoves.performMoves(new String[]{"T" , "T"});
+            performAndLogMoves(new String[]{"T" , "T"});
             return true;
         }
         else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][0] == 'Y' && cube[3][0][0] == 'Y'){
-            cubeMoves.performMoves(new String[]{"T"});
+            performAndLogMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
+
     private boolean isH(){
         if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y'){
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y'){
-            cubeMoves.performMoves(new String[]{"T"});
+            performAndLogMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
+
     private boolean isL(){
         if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[1][0][0] == 'Y' && cube[4][0][2] == 'Y'){
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][0] == 'Y' && cube[1][0][2] == 'Y'){
-            cubeMoves.performMoves(new String[]{"T`"});
+            performAndLogMoves(new String[]{"T`"});
             return true;
         }
         else if((cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' &&cube[3][0][0] == 'Y' && cube[2][0][2] == 'Y')){
-            cubeMoves.performMoves(new String[]{"T" , "T"});
+            performAndLogMoves(new String[]{"T" , "T"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' &&  cube[4][0][0] == 'Y' && cube[3][0][2] == 'Y'){
-            cubeMoves.performMoves(new String[]{"T"});
+            performAndLogMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
+
     private boolean isPi(){
         if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y' && cube[3][0][0] == 'Y'){
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y' && cube[4][0][0] == 'Y'){
-            cubeMoves.performMoves(new String[]{"T`"});
+            performAndLogMoves(new String[]{"T`"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[3][0][2] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y'){
-            cubeMoves.performMoves(new String[]{"T" , "T"});
+            performAndLogMoves(new String[]{"T" , "T"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y' && cube[2][0][0] == 'Y' && cube[4][0][2] == 'Y'){
-            cubeMoves.performMoves(new String[]{"T"});
+            performAndLogMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
+
     private  boolean isSune(){
         if(cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[4][0][2] == 'Y' && cube[3][0][2] == 'Y') {
             return true;
         }
         else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[1][0][2] == 'Y' && cube[4][0][2] == 'Y') {
-            cubeMoves.performMoves(new String[]{"T`"});
+            performAndLogMoves(new String[]{"T`"});
             return true;
         }
        else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[3][0][2] == 'Y' && cube[2][0][2] == 'Y' && cube[1][0][2] == 'Y') {
-            cubeMoves.performMoves(new String[]{"T", "T"});
+            performAndLogMoves(new String[]{"T", "T"});
             return true;
         }
       else  if(cube[0][0][1] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[4][0][2] == 'Y' && cube[3][0][2] == 'Y' && cube[2][0][2] == 'Y') {
-            cubeMoves.performMoves(new String[]{"T"});
+            performAndLogMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
+
     private  boolean isT(){
         if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[1][0][0] == 'Y' && cube[3][0][2] == 'Y') {
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[2][0][0] == 'Y' && cube[4][0][2] == 'Y') {
-            cubeMoves.performMoves(new String[]{"T`"});
+            performAndLogMoves(new String[]{"T`"});
             return true;
         }
         else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][2] == 'Y' && cube[3][0][0] == 'Y') {
-            cubeMoves.performMoves(new String[]{"T", "T"});
+            performAndLogMoves(new String[]{"T", "T"});
             return true;
         }
        else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[2][0][2] == 'Y' && cube[4][0][0] == 'Y') {
-            cubeMoves.performMoves(new String[]{"T"});
+            performAndLogMoves(new String[]{"T"});
             return true;
         }
         return false;
     }
+
     private  boolean isU(){
         if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[1][0][0] == 'Y' && cube[1][0][2] == 'Y') {
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][0][2] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[2][0][0] == 'Y' && cube[2][0][2] == 'Y') {
-            cubeMoves.performMoves(new String[]{"T`"});
+            performAndLogMoves(new String[]{"T`"});
             return true;
         }
         else if(cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[0][2][2] == 'Y' && cube[3][0][0] == 'Y' && cube[3][0][2] == 'Y') {
-            cubeMoves.performMoves(new String[]{"T" , "T"});
+            performAndLogMoves(new String[]{"T" , "T"});
             return true;
         }
         else if(cube[0][0][0] == 'Y' && cube[0][0][1] == 'Y' && cube[0][2][0] == 'Y' && cube[0][2][1] == 'Y' && cube[4][0][0] == 'Y' && cube[4][0][2] == 'Y') {
-            cubeMoves.performMoves(new String[]{"T"});
+            performAndLogMoves(new String[]{"T"});
             return true;
         }
         return false;
+    }
+
+    private void performAndLogMoves(String[] moves) {
+        cubeMoves.performMoves(moves);                                                                                                                                                                            //perform moves
+        moveRecord.addAll(List.of(moves));                                                                                                                                                                          // Log moves into the shared list
     }
 }
